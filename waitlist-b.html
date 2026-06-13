@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BF.D 웨잇리스트 — 다음 기수 사전 알림</title>
+  <meta property="og:title" content="BF.D 챌린지 — 다음 기수 웨잇리스트" />
+  <meta property="og:description" content="디자이너가 AI와 함께 4주 만에 실제 서비스를 만들어 배포하는 챌린지. 다음 기수 모집을 가장 먼저 안내받으세요." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <script>
+    tailwind.config = { theme: { extend: {
+      fontFamily: { sans: ['Pretendard','-apple-system','sans-serif'], serif: ['Newsreader','Georgia','serif'] },
+    } } }
+  </script>
+  <style>
+    body { background:#efeee9; }
+    ::selection { background:#1a1a18; color:#efeee9; }
+    .rule { height:1px; background:#1a1a18; }
+    input[type="radio"]{ accent-color:#1a1a18; }
+  </style>
+</head>
+<body class="font-sans text-[#1a1a18] antialiased">
+
+<!-- 상단 워드마크 -->
+<header class="pt-10 pb-2 text-center">
+  <p class="font-serif italic text-lg text-[#1a1a18]">Best friend of designers, BF.D</p>
+</header>
+
+<main class="mx-auto max-w-2xl px-6 sm:px-8 pb-20">
+
+  <!-- ───────────────── 히어로 ───────────────── -->
+  <section class="pt-12 sm:pt-16 text-center space-y-6">
+    <div class="mx-auto h-16 w-16 rounded-full bg-[#f4c14e] flex items-center justify-center text-3xl shadow-sm">🦫</div>
+    <div class="space-y-3">
+      <h1 class="text-[28px] sm:text-[40px] font-bold leading-[1.26] tracking-tight">
+        바이브 코딩으로 만든 제품,<br />몇 번이나 돌려보셨어요?
+      </h1>
+      <p class="font-serif italic text-xl sm:text-2xl text-[#6b6b64]">build once is not enough</p>
+    </div>
+    <p class="text-[15px] sm:text-[16px] leading-relaxed text-[#4a4a44] max-w-lg mx-auto">
+      BF.D는 단순히 코딩만 하는 곳이 아니에요. 각자 <b class="text-[#1a1a18]">현업의 진짜 문제</b>를 들고 모여,
+      만든 걸 <b class="text-[#1a1a18]">계속 이터레이션하며 사이클이 도는 제품</b>으로 키우는 —
+      그런 사람으로 성장하는 4주 챌린지예요.
+    </p>
+  </section>
+
+  <!-- ───────────────── 소개 ───────────────── -->
+  <section class="pt-16 sm:pt-20 space-y-7">
+    <p class="text-[17px] sm:text-[19px] leading-[1.75] text-[#2a2a26]">
+      AI native 1인 디자이너부터 — 유니콘 IT, B2B 기업의 프로덕트 디자이너,
+      연구자와 창업자까지. 각자 <b>현업에서 마주한 진짜 문제</b>를 들고 모여
+      <b>AI와 함께 4주간 실제로 만들고 배포</b>해요.
+    </p>
+    <p class="text-[17px] sm:text-[19px] leading-[1.75] text-[#2a2a26]">
+      그리고 한 번 만들고 끝이 아니라 — 만든 걸 계속 이터레이션하며
+      <b>사이클이 도는 제품</b>으로 키워가요. 일회성 결과물이 아니라,
+      스스로 제품을 굴릴 수 있는 사람으로 성장하는 게 목표예요.
+    </p>
+
+    <!-- 스탯 라인 -->
+    <div class="flex items-center gap-4 pt-4 text-[#1a1a18]">
+      <span class="text-2xl sm:text-3xl font-bold whitespace-nowrap">100%</span>
+      <span class="rule flex-1"></span>
+      <span class="text-2xl sm:text-3xl font-bold whitespace-nowrap">4주</span>
+      <span class="rule flex-1"></span>
+      <span class="text-2xl sm:text-3xl font-bold whitespace-nowrap">3트랙</span>
+    </div>
+    <div class="flex items-center justify-between text-[11px] text-[#8a8a82] -mt-5">
+      <span>1기 완주율</span><span>기수 기간</span><span>목표별 팀</span>
+    </div>
+  </section>
+
+  <!-- ───────────────── 트랙 ───────────────── -->
+  <section class="pt-16 sm:pt-20">
+    <h2 class="text-sm font-semibold text-[#8a8a82] tracking-wide mb-2">3개의 방향으로 달려요</h2>
+    <div>
+      <div class="rule"></div>
+      <div class="flex items-baseline gap-4 sm:gap-8 py-5">
+        <p class="font-bold text-lg sm:text-xl w-[140px] sm:w-[180px] shrink-0">AI product ops</p>
+        <p class="text-[15px] text-[#4a4a44]">협업·관리·반복작업을 시스템으로</p>
+      </div>
+      <div class="rule"></div>
+      <div class="flex items-baseline gap-4 sm:gap-8 py-5">
+        <p class="font-bold text-lg sm:text-xl w-[140px] sm:w-[180px] shrink-0">AI designers</p>
+        <p class="text-[15px] text-[#4a4a44]">비주얼과 인터랙션을 끝단까지</p>
+      </div>
+      <div class="rule"></div>
+      <div class="flex items-baseline gap-4 sm:gap-8 py-5">
+        <p class="font-bold text-lg sm:text-xl w-[140px] sm:w-[180px] shrink-0">AI builders</p>
+        <p class="text-[15px] text-[#4a4a44]">A부터 Z까지, 프로덕트를 직접 빌드</p>
+      </div>
+      <div class="rule"></div>
+    </div>
+    <p class="text-xs text-[#8a8a82] mt-3">* 트랙 구성은 기수마다 조금씩 달라질 수 있어요.</p>
+  </section>
+
+  <!-- ───────────────── 등록 폼 ───────────────── -->
+  <section class="pt-16 sm:pt-24">
+    <p class="text-sm font-medium text-[#8a8a82]">이번 기수는 마감됐어요.</p>
+    <h2 class="text-[26px] sm:text-3xl font-bold mt-1">다음 기수, 가장 먼저 알려드릴게요</h2>
+    <p class="mt-2 text-sm text-[#8a8a82]">웨잇리스트에 이름을 올려두면 모집이 열릴 때 가장 먼저 안내드려요. * 표시는 필수 항목입니다.</p>
+
+    <form id="wl-form" class="mt-8 space-y-6">
+      <div class="flex flex-col gap-2">
+        <label class="text-sm font-semibold">이름 <span class="text-[#c0392b]">*</span></label>
+        <input name="name" class="rounded-lg border border-[#cfcec6] bg-white/60 px-4 py-3 text-[15px] placeholder-[#a8a89e] outline-none focus:border-[#1a1a18] transition" placeholder="홍길동" required />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="text-sm font-semibold">전화번호 <span class="text-[#c0392b]">*</span></label>
+        <p class="text-xs text-[#8a8a82] -mt-1">다음 기수 모집 안내를 받을 번호예요.</p>
+        <input name="phone" type="tel" class="rounded-lg border border-[#cfcec6] bg-white/60 px-4 py-3 text-[15px] placeholder-[#a8a89e] outline-none focus:border-[#1a1a18] transition" placeholder="010-0000-0000" required />
+      </div>
+
+      <div class="flex flex-col gap-2.5">
+        <label class="text-sm font-semibold">참여하고 싶은 이유는? <span class="text-[#c0392b]">*</span></label>
+        <p class="text-xs text-[#8a8a82] -mt-1.5">가장 가까운 걸 하나 골라주세요.</p>
+        <div class="space-y-2.5">
+          <label class="flex gap-3 items-start rounded-lg border border-[#cfcec6] bg-white/40 px-4 py-3 text-[14px] cursor-pointer hover:border-[#1a1a18] transition">
+            <input type="radio" name="reason" value="포모 해결" class="mt-0.5" required />
+            <span><b>포모(FOMO) 해결</b> — 다들 AI로 만든다는데, 나만 뒤처지는 것 같아서</span>
+          </label>
+          <label class="flex gap-3 items-start rounded-lg border border-[#cfcec6] bg-white/40 px-4 py-3 text-[14px] cursor-pointer hover:border-[#1a1a18] transition">
+            <input type="radio" name="reason" value="러닝 바이 두잉" class="mt-0.5" />
+            <span><b>러닝 바이 두잉</b> — 강의만 듣지 말고 직접 만들면서 제대로 배우고 싶어서</span>
+          </label>
+          <label class="flex gap-3 items-start rounded-lg border border-[#cfcec6] bg-white/40 px-4 py-3 text-[14px] cursor-pointer hover:border-[#1a1a18] transition">
+            <input type="radio" name="reason" value="커리어용 사이드" class="mt-0.5" />
+            <span><b>커리어용 사이드</b> — 포트폴리오·이직을 위해 사이드 프로젝트가 필요해서</span>
+          </label>
+          <label class="flex gap-3 items-start rounded-lg border border-[#cfcec6] bg-white/40 px-4 py-3 text-[14px] cursor-pointer hover:border-[#1a1a18] transition">
+            <input type="radio" name="reason" value="기타" class="mt-0.5" />
+            <span class="w-full"><b>기타</b> — 직접 입력
+              <input name="reason_etc" class="mt-2 w-full rounded-md border border-[#cfcec6] bg-white/60 px-3 py-2 text-sm placeholder-[#a8a89e] outline-none focus:border-[#1a1a18]" placeholder="어떤 이유인지 적어주세요" />
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="text-sm font-semibold">링크드인 <span class="text-[#a8a89e] text-xs font-normal">(선택)</span></label>
+        <p class="text-xs text-[#8a8a82] -mt-1">있으시면 남겨주세요. 어떤 분들이 관심 있는지 파악하는 데 참고해요.</p>
+        <input name="linkedin" class="rounded-lg border border-[#cfcec6] bg-white/60 px-4 py-3 text-[15px] placeholder-[#a8a89e] outline-none focus:border-[#1a1a18] transition" placeholder="https://linkedin.com/in/..." />
+      </div>
+
+      <button type="submit" id="wl-submit" class="w-full rounded-lg bg-[#1a1a18] hover:bg-black disabled:opacity-50 px-6 py-4 text-[15px] font-semibold text-[#efeee9] transition">웨잇리스트 등록하기</button>
+      <p id="wl-error" class="hidden text-sm text-[#c0392b] text-center"></p>
+    </form>
+
+    <!-- 완료 상태 -->
+    <div id="wl-done" class="hidden flex-col items-center justify-center gap-5 text-center py-16">
+      <div class="h-16 w-16 rounded-full bg-[#f4c14e] flex items-center justify-center text-3xl">🎉</div>
+      <h3 class="text-2xl font-bold">웨잇리스트 등록 완료!</h3>
+      <div class="rounded-2xl border border-[#1a1a18]/15 bg-white/50 px-12 py-7">
+        <p class="text-sm text-[#8a8a82]">당신의 대기 순번</p>
+        <p class="mt-1.5 font-bold leading-none"><span id="wl-position" class="text-6xl">47</span><span class="text-2xl align-top ml-1">번째</span></p>
+      </div>
+      <p class="text-[#5b5b54] text-[15px] max-w-xs leading-relaxed">이미 많은 분들이 기다리고 있어요.<br/>다음 기수 모집이 열리면 순서대로 가장 먼저 연락드릴게요.</p>
+    </div>
+  </section>
+
+  <footer class="pt-20 text-center">
+    <p class="text-sm text-[#8a8a82]">베프디 챌린지 · <span class="font-serif italic">Best friend of designers</span></p>
+  </footer>
+</main>
+
+<script src="./waitlist-submit.js"></script>
+</body>
+</html>
