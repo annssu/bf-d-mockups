@@ -39,8 +39,11 @@
    ========================================================================= */
 
 const WAITLIST_CONFIG = {
-  // "demo" | "formspree" | "supabase"
-  MODE: "demo",
+  // "api" | "demo" | "formspree" | "supabase"
+  //  · "api"  = Vercel 서버 함수(/api/waitlist)로 저장 (키는 코드에 없음, 추천)
+  //            → 로컬(내 컴퓨터)에서는 자동으로 "demo"처럼 미리보기만 돼요.
+  //  · "demo" = 저장 없이 완료 화면만
+  MODE: "api",
 
   // 방법 ① Formspree
   FORMSPREE_ENDPOINT: "https://formspree.io/f/여기에_본인_폼ID",
@@ -108,6 +111,18 @@ const WAITLIST_CONFIG = {
     if (!res.ok) throw new Error("Formspree 응답 오류 " + res.status);
   }
 
+  // Vercel 서버 함수로 보내기 (키는 서버에만 있어 안전)
+  async function submitApi(data) {
+    const res = await fetch("/api/waitlist", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json().catch(function () { return {}; });
+    if (!res.ok) throw new Error(json.error || ("서버 응답 오류 " + res.status));
+    return json.position || WAITLIST_CONFIG.WAITLIST_START_NUMBER;
+  }
+
   async function submitSupabase(data) {
     const res = await fetch(WAITLIST_CONFIG.SUPABASE_URL + "/rest/v1/waitlist", {
       method: "POST",
@@ -131,13 +146,19 @@ const WAITLIST_CONFIG = {
     if (errEl) errEl.classList.add("hidden");
     const data = collect();
 
-    if (WAITLIST_CONFIG.MODE === "demo") { showDone(demoPosition()); return; }
+    // 로컬(내 컴퓨터 미리보기)에서는 진짜 저장 없이 미리보기만
+    var isLocal = location.protocol === "file:" ||
+      location.hostname === "127.0.0.1" || location.hostname === "localhost";
+    var mode = (WAITLIST_CONFIG.MODE === "api" && isLocal) ? "demo" : WAITLIST_CONFIG.MODE;
+
+    if (mode === "demo") { showDone(demoPosition()); return; }
 
     if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "등록 중…"; }
     try {
       var position = WAITLIST_CONFIG.WAITLIST_START_NUMBER;
-      if (WAITLIST_CONFIG.MODE === "formspree") { await submitFormspree(data); position = demoPosition(); }
-      else if (WAITLIST_CONFIG.MODE === "supabase") position = await submitSupabase(data);
+      if (mode === "api") position = await submitApi(data);
+      else if (mode === "formspree") { await submitFormspree(data); position = demoPosition(); }
+      else if (mode === "supabase") position = await submitSupabase(data);
       else throw new Error("MODE 설정이 올바르지 않아요: " + WAITLIST_CONFIG.MODE);
       showDone(position);
     } catch (err) {
