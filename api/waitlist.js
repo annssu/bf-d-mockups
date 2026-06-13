@@ -53,7 +53,7 @@ export default async function handler(req, res) {
       const text = await insertRes.text();
       console.error("Supabase insert 실패:", insertRes.status, text);
       // 진단 모드: 원인 파악용으로 Supabase 응답을 잠깐 노출 (확인 후 되돌릴 예정)
-      return res.status(502).json({ error: "저장 중 문제가 생겼어요.", _debug: { status: insertRes.status, body: text.slice(0, 300) } });
+      return res.status(502).json({ error: "저장 중 문제가 생겼어요.", _debug: { status: insertRes.status, body: text.slice(0, 300), attemptedUrl: SUPABASE_URL + "/rest/v1/waitlist", urlHost: SUPABASE_URL } });
     }
 
     // 2) 누적 인원 세서 대기 순번 계산
