@@ -20,7 +20,8 @@ export default async function handler(req, res) {
     .replace(/\/rest\/v1\/?$/, "")
     .replace(/\/+$/, "");
   const SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
-  const START_NUMBER = parseInt(process.env.WAITLIST_START_NUMBER || "47", 10);
+  // 대기순번 시작 숫자 — 코드에서 직접 관리 (16번부터 시작)
+  const START_NUMBER = 16;
 
   if (!SUPABASE_URL || !SERVICE_KEY) {
     return res.status(500).json({ error: "서버 설정(SUPABASE 키)이 아직 안 됐어요." });
