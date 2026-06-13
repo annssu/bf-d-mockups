@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "POST만 허용돼요." });
   }
 
-  const SUPABASE_URL = process.env.SUPABASE_URL;
+  const SUPABASE_URL = (process.env.SUPABASE_URL || "").trim().replace(/\/+$/, "");
   const SERVICE_KEY = process.env.SUPABASE_SERVICE_KEY;
   const START_NUMBER = parseInt(process.env.WAITLIST_START_NUMBER || "47", 10);
 
