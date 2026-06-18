@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BF.D 지원서 히어로 — A안 vs B안 비교</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <script>
+    tailwind.config = { theme: { extend: {
+      fontFamily: { sans: ['Pretendard','-apple-system','sans-serif'] },
+      colors: { violet: { 600:'#7c3aed', 500:'#8b5cf6', 400:'#a78bfa', 300:'#c4b5fd' } }
+    } } }
+  </script>
+  <style>
+    body { background:#09090b; word-break: keep-all; }
+    ::selection { background:#7c3aed; color:#fff; }
+  </style>
+</head>
+<body class="font-sans text-zinc-100 antialiased">
+
+<div class="mx-auto max-w-5xl px-5 py-10 space-y-6">
+  <h1 class="text-lg font-bold text-zinc-200">BF.D 지원서 히어로 — A안 vs B안</h1>
+  <p class="text-sm text-zinc-500">실제 지원서 헤더 자리에 들어갈 첫 화면이에요. 두 톤을 비교해보세요.</p>
+
+  <div class="grid md:grid-cols-2 gap-5">
+
+    <!-- ════════ A안 ════════ -->
+    <div class="rounded-2xl border border-zinc-800 overflow-hidden">
+      <div class="bg-zinc-900 border-b border-zinc-800 px-5 py-2.5 flex items-center gap-2">
+        <span class="rounded-full bg-zinc-700 text-zinc-200 text-xs font-bold px-2.5 py-0.5">A안</span>
+        <span class="text-xs text-zinc-500">담백 · 문제의식형 (현재 적용본)</span>
+      </div>
+      <div class="px-5 py-8 space-y-4">
+        <div class="flex items-center gap-3 flex-wrap">
+          <span class="inline-block rounded-full bg-violet-600/15 border border-violet-500/40 px-3.5 py-1 text-xs font-semibold tracking-wide text-violet-300">BF.D 챌린지 3기</span>
+          <span class="rounded-full bg-violet-600 px-3 py-1 text-sm font-semibold text-white">D-7 마감</span>
+        </div>
+        <h2 class="text-[24px] sm:text-[30px] font-bold tracking-tight leading-[1.32]">
+          한 번 만들고 끝나는 결과물 말고,<br />
+          <span class="text-violet-400">사이클이 도는 진짜 제품</span>을 만들어요.
+        </h2>
+        <p class="text-zinc-400 text-[15px] leading-relaxed">
+          AI로 뭔가 만들어보긴 했는데, 한 번 쓰고 그대로 묻혀버린 적 있지 않나요?
+          BF.D는 디자이너들이 모여 4주 동안 <b class="text-zinc-200">실제로 굴러가는 제품</b>을 만들고 배포까지 해보는 챌린지예요.
+          혼자였다면 중간에 미뤘을 일을, 같은 목표를 가진 동료들과 끝까지 완성해봐요.
+        </p>
+      </div>
+      <div class="bg-zinc-900/60 border-t border-zinc-800 px-5 py-3 text-[12px] text-zinc-500 leading-relaxed">
+        👍 이미 한 번쯤 만들어봤지만 '일회성'에 답답함을 느낀 사람에게 꽂혀요. 진지하고 신뢰감 있는 톤.
+      </div>
+    </div>
+
+    <!-- ════════ B안 ════════ -->
+    <div class="rounded-2xl border border-violet-500/40 overflow-hidden">
+      <div class="bg-violet-600/10 border-b border-violet-500/30 px-5 py-2.5 flex items-center gap-2">
+        <span class="rounded-full bg-violet-600 text-white text-xs font-bold px-2.5 py-0.5">B안</span>
+        <span class="text-xs text-violet-300">공감 · 버즈워드형 (새 시안)</span>
+      </div>
+      <div class="px-5 py-8 space-y-4">
+        <div class="flex items-center gap-3 flex-wrap">
+          <span class="inline-block rounded-full bg-violet-600/15 border border-violet-500/40 px-3.5 py-1 text-xs font-semibold tracking-wide text-violet-300">BF.D 챌린지 3기</span>
+          <span class="rounded-full bg-violet-600 px-3 py-1 text-sm font-semibold text-white">D-7 마감</span>
+        </div>
+        <h2 class="text-[24px] sm:text-[30px] font-bold tracking-tight leading-[1.32]">
+          서브 에이전트? 하네스 엔지니어링?<br />
+          <span class="text-violet-400">…그게 다 뭔데? 🫠</span>
+        </h2>
+        <p class="text-zinc-300 text-[15px] leading-relaxed">
+          용어는 매일 쏟아지는데, 솔직히 아직 제대로 시작은 못 했죠.
+          그래도 <b class="text-zinc-100">'AI 메이커가 되고 싶은' 사람들</b> — 여기 다 모였어요.
+        </p>
+        <p class="text-zinc-400 text-[14px] leading-relaxed">
+          모르는 채로 와도 괜찮아요. 4주 뒤엔 용어 대신 <b class="text-zinc-200">직접 만든 진짜 제품</b>을 들고 나가니까요.
+        </p>
+      </div>
+      <div class="bg-zinc-900/60 border-t border-violet-500/20 px-5 py-3 text-[12px] text-zinc-500 leading-relaxed">
+        👍 'AI 얘기에 주눅 든' 입문자에게 꽂혀요. 친근하고 진입장벽 낮추는 톤. 위트가 호불호일 수 있음.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- B안 변형 보기 (이모지 빼거나 톤 조절) -->
+  <div class="rounded-2xl border border-zinc-800 overflow-hidden mt-2">
+    <div class="bg-zinc-900 border-b border-zinc-800 px-5 py-2.5 flex items-center gap-2">
+      <span class="rounded-full bg-zinc-700 text-zinc-200 text-xs font-bold px-2.5 py-0.5">B-2</span>
+      <span class="text-xs text-zinc-500">B안 순화 버전 — 이모지·밈 톤 살짝 빼고 위트만</span>
+    </div>
+    <div class="px-5 py-8 space-y-4 max-w-2xl">
+      <div class="flex items-center gap-3 flex-wrap">
+        <span class="inline-block rounded-full bg-violet-600/15 border border-violet-500/40 px-3.5 py-1 text-xs font-semibold tracking-wide text-violet-300">BF.D 챌린지 3기</span>
+        <span class="rounded-full bg-violet-600 px-3 py-1 text-sm font-semibold text-white">D-7 마감</span>
+      </div>
+      <h2 class="text-[24px] sm:text-[30px] font-bold tracking-tight leading-[1.32]">
+        매일 새로운 AI 용어가 쏟아지지만,<br />
+        <span class="text-violet-400">아직 제대로 시작은 못 했다면</span>
+      </h2>
+      <p class="text-zinc-400 text-[15px] leading-relaxed">
+        괜찮아요. 'AI 메이커가 되고 싶은' 마음 하나면 충분해요.
+        BF.D에서 같은 출발선의 동료들과 4주 동안, 용어 대신 <b class="text-zinc-200">직접 만든 진짜 제품</b>을 손에 쥐고 나가요.
+      </p>
+    </div>
+    <div class="bg-zinc-900/60 border-t border-zinc-800 px-5 py-3 text-[12px] text-zinc-500 leading-relaxed">
+      👍 B안의 공감 포인트는 살리되 밈 톤이 부담스러울 때. A·B 중간 지점.
+    </div>
+  </div>
+
+  <!-- C안: 찍먹 + 핵심 한 줄 -->
+  <div class="rounded-2xl border border-emerald-500/40 overflow-hidden mt-2">
+    <div class="bg-emerald-600/10 border-b border-emerald-500/30 px-5 py-2.5 flex items-center gap-2">
+      <span class="rounded-full bg-emerald-600 text-white text-xs font-bold px-2.5 py-0.5">C안</span>
+      <span class="text-xs text-emerald-300">구어체 공감 + 핵심 한 줄 (찍먹형)</span>
+    </div>
+    <div class="px-5 py-8 space-y-4 max-w-2xl">
+      <div class="flex items-center gap-3 flex-wrap">
+        <span class="inline-block rounded-full bg-violet-600/15 border border-violet-500/40 px-3.5 py-1 text-xs font-semibold tracking-wide text-violet-300">BF.D 챌린지 3기</span>
+        <span class="rounded-full bg-violet-600 px-3 py-1 text-sm font-semibold text-white">D-7 마감</span>
+      </div>
+      <h2 class="text-[24px] sm:text-[30px] font-bold tracking-tight leading-[1.32]">
+        AI 찍먹만 하지 말고,<br />
+        <span class="text-violet-400">사이클이 도는 진짜 제품</span>을 만드는<br />
+        AI 메이커가 되고 싶은 사람 다 모여라!
+      </h2>
+      <p class="text-zinc-400 text-[15px] leading-relaxed">
+        써보기만 하고 끝났던 AI, 이번엔 끝까지 가봐요.
+        같은 목표의 디자이너들과 4주 동안 <b class="text-zinc-200">직접 만든 제품</b>을 배포까지 해보는 챌린지예요.
+      </p>
+    </div>
+    <div class="bg-zinc-900/60 border-t border-emerald-500/20 px-5 py-3 text-[12px] text-zinc-500 leading-relaxed">
+      👍 '찍먹' 구어체로 진입장벽을 낮추면서 첫 줄에 핵심('사이클 도는 진짜 제품')까지 박은 버전. B의 친근함 + A의 메시지를 한 줄에. "다 모여라!"가 모집 공고 느낌이라 활기참.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
