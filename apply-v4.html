@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BF.D 챌린지 3기 지원하기</title>
+  <meta property="og:title" content="BF.D 챌린지 3기 — 지원하기" />
+  <meta property="og:description" content="디자이너가 AI와 함께 4주 만에 '사이클이 도는 제품'을 만들어 배포하는 챌린지. 3기 모집 중." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = { theme: { extend: {
+      fontFamily: {
+        sans: ['Pretendard','-apple-system','sans-serif'],
+        serif: ['"Instrument Serif"','Georgia','serif'],
+        mono: ['"Space Mono"','ui-monospace','monospace'],
+      },
+      colors: {
+        paper:  '#F6F1E7',
+        card:   '#FFFDF8',
+        line:   '#E4DAC6',
+        ink:    '#20201D',
+        cobalt: { DEFAULT:'#2B3A8C', soft:'#3E51A8', tint:'#EAECF6' },
+        clay:   { DEFAULT:'#C4623F', tint:'#F6E6DC' },
+      },
+    } } }
+  </script>
+
+  <style>
+    /* word-break:keep-all → 한국어가 어절 중간에서 안 잘리고 단어 단위로 줄바꿈돼요 */
+    body { background:#F6F1E7; word-break: keep-all; }
+    ::selection { background:#2B3A8C; color:#F6F1E7; }
+
+    /* 리소그래프 종이 그레인 (전체에 아주 옅게) */
+    .grain::before{
+      content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+      opacity:.42; mix-blend-mode:multiply;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E");
+    }
+
+    /* 영문 세리프 포인트 — "한 스푼"의 우아함 */
+    .serif-it { font-family:'Instrument Serif',Georgia,serif; font-style:italic; font-weight:400; letter-spacing:.01em; }
+    .serif    { font-family:'Instrument Serif',Georgia,serif; }
+    /* 모노 라벨 — 에디토리얼 신뢰감 */
+    .klabel { font-family:'Space Mono',ui-monospace,monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; }
+
+    .ph { background: rgba(196,98,63,.12); border:1px dashed rgba(196,98,63,.55); border-radius:6px; padding:1px 6px; color:#A24E30; font-size:.85em; }
+
+    /* 일러스트 자리 (제미나이/GPT 이미지로 교체) */
+    .illo-slot{
+      border:1.5px dashed #2B3A8C; border-radius:18px; background:#EAECF6;
+      display:flex; align-items:center; justify-content:center; text-align:center;
+      color:#2B3A8C; padding:20px;
+    }
+    .tip-card { box-shadow: 0 14px 40px rgba(32,32,29,.18); }
+  </style>
+</head>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     ✏️ 직접 고치는 법 (3초 요약)
+     · 글자는  >  와  <  사이만 바꾸세요.   예) <h2 ...>여기만 고침</h2>
+     · class="..." 부분은 디자인이니 건드리지 마세요.
+     · 줄바꿈 = 원하는 자리에  <br />  넣기
+     · 굵게 = <b>굵게할글자</b>  /  코발트강조 = <span class="text-cobalt">강조</span>
+     · 주황(.ph)박스 = 아직 안 채운 빈칸. 실제 값으로 바꾼 뒤 class="ph"만 지우면 돼요.
+     · 🎨 .illo-slot = 손그림 일러스트 들어갈 자리. 이미지 받으면 그 안을
+       <img src="이미지파일" class="w-full h-full object-cover rounded-[18px]" /> 로 바꾸면 돼요.
+     ════════════════════════════════════════════════════════════════════ -->
+
+<body class="font-sans text-ink antialiased grain">
+
+<main class="relative z-10 mx-auto max-w-2xl px-5 py-10 sm:py-16 space-y-14 sm:space-y-20">
+
+  <!-- ───────────────── 헤더 ───────────────── -->
+  <header class="space-y-5">
+    <div class="flex items-center gap-2.5 flex-wrap">
+      <span class="klabel inline-flex items-center rounded-full border border-cobalt/45 px-3.5 py-1.5 text-cobalt font-bold">BF.D / ISSUE 03</span>
+      <span class="klabel inline-flex items-center rounded-full bg-cobalt px-3 py-1.5 text-paper font-bold">D-<span class="ph">?</span> 마감</span>
+    </div>
+
+    <h1 class="text-[30px] sm:text-[40px] font-extrabold tracking-tight leading-[1.22]">
+      한 번 쓰고 버려지는<br class="hidden sm:block" /> 결과물이 아니라,<br />
+      <span class="serif-it text-cobalt text-[34px] sm:text-[46px]">cycle</span> 이 도는
+      <span class="text-cobalt">진짜 제품</span>을 만들어요.
+    </h1>
+
+    <p class="text-ink/65 text-[15px] sm:text-[16.5px] leading-[1.85] max-w-xl">
+      AI로 뭔가 만들어보긴 했는데, 한 번 쓰고 그대로 묻혀버린 적 있지 않나요?
+      BF.D는 디자이너들이 모여 4주 동안 <b class="text-ink">실제로 굴러가는 제품</b>을 만들고 배포까지 해보는 챌린지예요.
+      혼자였다면 중간에 미뤘을 일을, 같은 목표를 가진 동료들과 끝까지 완성해봐요.
+    </p>
+
+    <!-- 🎨 히어로 일러스트 자리 (사람들이 손잡고 도는 손그림) -->
+    <div class="illo-slot aspect-[16/9] mt-2">
+      <div>
+        <div class="serif text-2xl mb-1">illustration</div>
+        <p class="text-[13px] leading-relaxed">🎨 여기에 <b>손잡고 도는 사람들</b> 손그림이 들어가요<br />(제미나이·GPT로 생성한 코발트 라인 일러스트, 16:9)</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ───────────────── 챌린지 컨셉 진화 (1 → 2 → 3기) ───────────────── -->
+  <section class="space-y-5">
+    <div class="space-y-1">
+      <p class="klabel text-clay">How we evolved</p>
+      <h2 class="text-[21px] font-bold">베프디는 이렇게 진화해왔어요</h2>
+      <p class="text-[14px] text-ink/55">기수를 거치며 한 단계씩 더 나아가고 있어요. 3기는 그 다음 챕터예요.</p>
+    </div>
+
+    <div class="space-y-2.5">
+      <div class="rounded-2xl border border-line bg-card p-5 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-5">
+        <p class="serif text-2xl text-ink/35 shrink-0 sm:w-[56px]">01</p>
+        <p class="text-[14.5px] text-ink/70 leading-relaxed">AI 바이브코딩, <b class="text-ink">시작이 막막한 사람</b>들을 위해. 일단 두려움을 깨고 한 번 만들어봤어요.</p>
+      </div>
+      <div class="rounded-2xl border border-line bg-card p-5 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-5">
+        <p class="serif text-2xl text-ink/35 shrink-0 sm:w-[56px]">02</p>
+        <p class="text-[14.5px] text-ink/70 leading-relaxed">AI를 <b class="text-ink">나와 내 일에 맞게 잘 활용</b>하는 사람으로. 도구를 내 것으로 길들였어요.</p>
+      </div>
+      <div class="rounded-2xl border-[1.5px] border-cobalt/55 bg-cobalt-tint p-5 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-5">
+        <p class="serif text-2xl text-cobalt shrink-0 sm:w-[56px]">03</p>
+        <p class="text-[14.5px] text-ink leading-relaxed">대망의 3기 <span class="klabel text-cobalt align-middle">now</span><br class="sm:hidden" /> 더 이상 'AI 쓰레기'가 아니라, <b class="text-cobalt">사이클이 도는 진짜 제품</b>을 만들 수 있는 사람으로.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────── 왜 굳이 베프디? ───────────────── -->
+  <section class="space-y-5">
+    <div class="space-y-1">
+      <p class="klabel text-clay">Why BF.D</p>
+      <h2 class="text-[21px] font-bold">왜 굳이 베프디 챌린지일까요?</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-3">
+      <div class="rounded-2xl border border-line bg-card p-5 space-y-1.5">
+        <p class="font-bold text-ink flex items-center gap-2"><span>🎤</span> 끝에 보여줄 자리가 있어요</p>
+        <p class="text-[14px] text-ink/65 leading-relaxed">4주 뒤, 직접 만든 걸 오프라인에서 사람들 앞에 올려요. 끝에 무대가 정해져 있으니, 미루던 것도 결국 완성하게 돼요.</p>
+      </div>
+      <div class="rounded-2xl border border-line bg-card p-5 space-y-1.5">
+        <p class="font-bold text-ink flex items-center gap-2"><span>👯</span> 디자이너끼리 모였어요</p>
+        <p class="text-[14px] text-ink/65 leading-relaxed">코드가 막막한 디자이너들끼리라 막히는 지점도 비슷해요. 눈치 안 보고 편하게 묻고, 서로의 삽질을 나눠요.</p>
+      </div>
+      <div class="rounded-2xl border border-line bg-card p-5 space-y-1.5">
+        <p class="font-bold text-ink flex items-center gap-2"><span>💸</span> 돈을 걸어요</p>
+        <p class="text-[14px] text-ink/65 leading-relaxed">보증금을 걸고, 매주 해낸 만큼 돌려받아요. 의지력에 기대는 대신 시스템이 끝까지 붙잡아줘요.</p>
+      </div>
+      <div class="rounded-2xl border border-line bg-card p-5 space-y-1.5">
+        <p class="font-bold text-ink flex items-center gap-2"><span>⚡</span> 매일 노하우가 쌓여요</p>
+        <p class="text-[14px] text-ink/65 leading-relaxed">누군가는 매일 새로 찾은 툴·프롬프트·스킬을 채널에 풀어요. 혼자 헤매며 알아낼 걸, 4주간 곁에서 같이 주워가요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────── 핵심 수치 (에디토리얼 세리프 숫자) ───────────────── -->
+  <section class="rounded-2xl border-[1.5px] border-ink/15 bg-card overflow-hidden">
+    <div class="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-line">
+      <div class="px-4 py-6 text-center"><p class="serif text-[40px] leading-none text-cobalt">100<span class="text-2xl">%</span></p><p class="klabel text-ink/45 mt-2">완주율</p></div>
+      <div class="px-4 py-6 text-center"><p class="serif text-[40px] leading-none">4<span class="text-2xl">주</span></p><p class="klabel text-ink/45 mt-2">기간</p></div>
+      <div class="px-4 py-6 text-center"><p class="serif text-[40px] leading-none">3<span class="text-2xl">팀</span></p><p class="klabel text-ink/45 mt-2">목표별 구성</p></div>
+      <div class="px-4 py-6 text-center"><p class="serif text-[40px] leading-none">매일<span class="text-2xl">+</span></p><p class="klabel text-ink/45 mt-2">툴·스킬 공유</p></div>
+    </div>
+  </section>
+
+  <!-- ───────────────── 1·2기 후기 ───────────────── -->
+  <section class="space-y-3">
+    <div class="space-y-1">
+      <p class="klabel text-clay">Voices · 완주율 100%</p>
+      <h2 class="text-[21px] font-bold">참여자 후기</h2>
+      <p class="text-[13.5px] text-ink/55">아바타에 마우스를 올리거나, 휴대폰이면 <b class="text-ink/75">탭</b>해보세요</p>
+    </div>
+    <div id="wall" class="relative select-none"></div>
+  </section>
+
+  <!-- ───────────────── ⭐ 팀 선택 가이드 ───────────────── -->
+  <section class="space-y-5">
+    <div class="space-y-1">
+      <p class="klabel text-clay">Pick your team</p>
+      <h2 class="text-[21px] font-bold">어떤 팀으로 지원할까요?</h2>
+      <p class="text-[14px] text-ink/55">팀마다 만드는 결과물의 성격이 달라요. 읽고 가장 끌리는 팀을 골라주세요.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+
+      <!-- 팀 1 -->
+      <div class="rounded-2xl border-[1.5px] border-cobalt/45 bg-cobalt-tint p-5 flex flex-col gap-2.5">
+        <div>
+          <p class="klabel text-cobalt">Team 01</p>
+          <h3 class="font-bold text-ink text-[16px] leading-tight mt-1">🚀 AI Builder</h3>
+          <p class="text-[12px] text-cobalt mt-0.5">A부터 Z까지 — 나만의 서비스</p>
+        </div>
+        <p class="text-[13px] text-ink/75 leading-relaxed">내가 풀고 싶던 문제로 <b>실제 사용자가 쓰는 서비스</b>를 0부터 만들어 배포하고 운영해요.</p>
+        <div class="text-[12.5px] text-ink/60">
+          <p class="klabel text-ink/40 mb-1">makes</p>
+          <ul class="list-disc list-inside space-y-0.5"><li>아이디어 → MVP 배포</li><li>사이드/창업 아이템 검증</li></ul>
+        </div>
+        <div class="rounded-xl bg-card border border-line px-3 py-2 text-[11px] text-ink/55"><b class="text-ink/75">기존 기수 결과물 →</b><br /><span class="ph">결과물 1~2개 넣기</span></div>
+        <p class="text-[11.5px] text-ink/50 mt-auto pt-1">👉 "이거 있으면 좋겠다" 싶은 분</p>
+      </div>
+
+      <!-- 팀 2 -->
+      <div class="rounded-2xl border border-line bg-card p-5 flex flex-col gap-2.5">
+        <div>
+          <p class="klabel text-ink/40">Team 02</p>
+          <h3 class="font-bold text-ink text-[16px] leading-tight mt-1">⚙️ AI Product Ops</h3>
+          <p class="text-[12px] text-ink/55 mt-0.5">반복작업을 시스템으로</p>
+        </div>
+        <p class="text-[13px] text-ink/75 leading-relaxed">매일 반복하는 협업·관리·잡무를 <b>AI·자동화</b>로 없애는 실전 프로젝트를 만들어요.</p>
+        <div class="text-[12.5px] text-ink/60">
+          <p class="klabel text-ink/40 mb-1">makes</p>
+          <ul class="list-disc list-inside space-y-0.5"><li>나만의 AI 워크플로우/봇</li><li>잡무 줄이는 자동화</li></ul>
+        </div>
+        <div class="rounded-xl bg-paper border border-line px-3 py-2 text-[11px] text-ink/55"><b class="text-ink/75">기존 기수 결과물 →</b><br /><span class="ph">결과물 1~2개 넣기</span></div>
+        <p class="text-[11.5px] text-ink/50 mt-auto pt-1">👉 반복 업무에 시달리는 효율 덕후</p>
+      </div>
+
+      <!-- 팀 3 -->
+      <div class="rounded-2xl border border-line bg-card p-5 flex flex-col gap-2.5">
+        <div>
+          <p class="klabel text-ink/40">Team 03</p>
+          <h3 class="font-bold text-ink text-[16px] leading-tight mt-1">🎨 AI Designer</h3>
+          <p class="text-[12px] text-ink/55 mt-0.5">비주얼 / 플랫폼 / 인터랙션</p>
+        </div>
+        <p class="text-[13px] text-ink/75 leading-relaxed">디자인 감각을 살려 <b>인터랙션·비주얼이 살아있는 결과물</b>을 끝단까지 코드로 빌드해요.</p>
+        <div class="text-[12.5px] text-ink/60">
+          <p class="klabel text-ink/40 mb-1">makes</p>
+          <ul class="list-disc list-inside space-y-0.5"><li>포트폴리오·인터랙티브 웹</li><li>애니메이션/플랫폼 UI</li></ul>
+        </div>
+        <div class="rounded-xl bg-paper border border-line px-3 py-2 text-[11px] text-ink/55"><b class="text-ink/75">기존 기수 결과물 →</b><br /><span class="ph">결과물 1~2개 넣기</span></div>
+        <p class="text-[11.5px] text-ink/50 mt-auto pt-1">👉 내 작업을 제대로 보여주고 싶은 분</p>
+      </div>
+
+    </div>
+
+    <div class="rounded-2xl border border-clay/40 bg-clay-tint px-5 py-3.5 flex items-start gap-2.5">
+      <span class="text-clay text-lg leading-none">⏳</span>
+      <p class="text-[14px] text-ink/80 leading-relaxed"><b>팀별 정원이 있어요.</b> 인기 팀은 먼저 마감될 수 있으니, 마음에 드는 팀이 있다면 <b class="text-clay">빠르게 선착순으로</b> 지원해주세요.</p>
+    </div>
+  </section>
+
+  <!-- ───────────────── 일정 ───────────────── -->
+  <section class="space-y-5">
+    <div class="space-y-1">
+      <p class="klabel text-clay">Schedule</p>
+      <h2 class="text-[21px] font-bold">4주 일정</h2>
+    </div>
+
+    <div class="rounded-2xl border border-line bg-card overflow-hidden divide-y divide-line">
+      <div class="flex items-center gap-3 px-5 py-4">
+        <span class="h-2 w-2 rounded-full bg-cobalt shrink-0"></span>
+        <div class="flex-1"><span class="klabel text-cobalt">Kick-off · 오프라인</span><p class="text-[14.5px] text-ink font-semibold mt-1">7/5 (일) · 서울대 논스 · 오전 10시–오후 1시</p></div>
+      </div>
+      <div class="flex items-center gap-3 px-5 py-3.5"><span class="h-2 w-2 rounded-full bg-line shrink-0"></span><div class="flex-1 flex items-baseline justify-between"><span class="text-[14px] text-ink/75 font-medium">Week 1</span><span class="text-[14px] text-ink/55">7/12 (일)</span></div></div>
+      <div class="flex items-center gap-3 px-5 py-3.5"><span class="h-2 w-2 rounded-full bg-line shrink-0"></span><div class="flex-1 flex items-baseline justify-between"><span class="text-[14px] text-ink/75 font-medium">Week 2</span><span class="text-[14px] text-ink/55">7/19 (일)</span></div></div>
+      <div class="flex items-center gap-3 px-5 py-3.5"><span class="h-2 w-2 rounded-full bg-line shrink-0"></span><div class="flex-1 flex items-baseline justify-between"><span class="text-[14px] text-ink/75 font-medium">Week 3</span><span class="text-[14px] text-ink/55">7/26 (일)</span></div></div>
+      <div class="flex items-center gap-3 px-5 py-3.5"><span class="h-2 w-2 rounded-full bg-line shrink-0"></span><div class="flex-1 flex items-baseline justify-between"><span class="text-[14px] text-ink/75 font-medium">Week 4</span><span class="text-[14px] text-ink/55">8/2 (일)</span></div></div>
+      <div class="flex items-center gap-3 px-5 py-4 bg-clay-tint">
+        <span class="h-2 w-2 rounded-full bg-clay shrink-0"></span>
+        <div class="flex-1"><span class="klabel text-clay">Showcase · 오프라인</span><p class="text-[14.5px] text-ink font-semibold mt-1">8/9 (일) · <span class="text-ink/55 font-normal">장소·시간 추후 안내</span></p></div>
+      </div>
+    </div>
+    <p class="text-[12.5px] text-ink/50">* 킥오프와 쇼케이스는 오프라인으로 진행돼요. 두 일정에 모두 참여 가능한지 꼭 확인해주세요.</p>
+  </section>
+
+  <!-- ───────────────── STUDY RULE ───────────────── -->
+  <section class="space-y-5">
+    <div class="space-y-1">
+      <p class="klabel text-clay">Study rule</p>
+      <h2 class="text-[21px] font-bold">돈을 거는 방식</h2>
+    </div>
+    <div class="rounded-2xl border border-line bg-card p-6 space-y-5 text-[14px] text-ink/70">
+      <div class="rounded-xl bg-cobalt-tint border border-cobalt/30 px-5 py-4 text-ink">
+        <p class="font-semibold leading-relaxed">매주 선언한 과제를 달성하면 5만원을 돌려받고, 달성하지 못하면 5만원이 차감돼요.</p>
+        <p class="text-ink/75 leading-relaxed mt-1.5">참여하려면 <b>운영 참가비 3만원</b>과 <b>챌린지 보증금 20만원</b>이 필요해요.</p>
+      </div>
+      <ul class="space-y-2 list-disc list-inside marker:text-cobalt/50">
+        <li>운영 참가비 3만원 — 운영·장소·진행에 쓰여요 (환급되지 않아요)</li>
+        <li>챌린지 보증금 20만원을 모임 계좌에 입금 (4주에 걸쳐 5만원씩 돌려받는 구조)</li>
+        <li>매주 선언한 과제를 달성하면 → 5만원 반환</li>
+        <li>달성하지 못하면 → 5만원 차감</li>
+        <li>일부만 달성했을 땐 → 참가자 투표로 달성 여부 및 차감 금액 결정</li>
+        <li>연속 2회 불참 → 보증금 차감</li>
+        <li>중도 포기 → 잔여 보증금 회수 불가 (회식비로 사용)</li>
+      </ul>
+      <p class="text-[12.5px] text-ink/45 italic border-t border-line pt-4">* 매일 깃헙 공용 레포에 커밋이 찍히는 것을 기본 강도로 하려고 해요!</p>
+    </div>
+  </section>
+
+  <!-- ───────────────── TIME RULE ───────────────── -->
+  <section class="space-y-5">
+    <div class="space-y-1">
+      <p class="klabel text-clay">Time rule</p>
+      <h2 class="text-[21px] font-bold">매주 일요일의 약속</h2>
+      <p class="text-[14px] text-ink/55">매주 일요일, 반드시 해야 할 일이 두 가지 있어요.</p>
+    </div>
+    <div class="rounded-2xl border border-line bg-card overflow-hidden">
+      <div class="grid grid-cols-[auto_1fr] divide-y divide-line">
+        <div class="px-5 py-4 border-r border-line flex items-center gap-2 text-ink font-medium whitespace-nowrap"><span>🗓</span><span class="text-[14px]">일요일 밋업</span></div>
+        <div class="px-5 py-4 text-[14px] text-ink/70">지난 주 달성 확인 + 이번 주 진행 공유</div>
+        <div class="px-5 py-4 border-r border-line flex items-center gap-2 text-ink font-medium whitespace-nowrap"><span>📢</span><span class="text-[14px]">자정까지 선언</span></div>
+        <div class="px-5 py-4 text-[14px] text-ink/70">이번 주 내가 할 것을 채널에 공유</div>
+      </div>
+    </div>
+    <div class="rounded-2xl border border-line bg-card p-5 space-y-1.5">
+      <p class="text-ink font-medium">평소엔 Discord로 비동기 소통</p>
+      <p class="text-[14px] text-ink/65 leading-relaxed">막힌 부분이 있을 때, 공유하고 싶을 때, 응원이 필요할 때 언제든 이야기를 나눠요.</p>
+    </div>
+  </section>
+
+  <!-- ───────────────── 이런 분이 맞아요 ───────────────── -->
+  <section class="space-y-4">
+    <div class="space-y-1">
+      <p class="klabel text-clay">Is it you?</p>
+      <h2 class="text-[21px] font-bold">혹시, 이런 적 있나요?</h2>
+      <p class="text-[14px] text-ink/55">하나라도 끄덕였다면, 베프디 3기가 딱 맞아요.</p>
+    </div>
+    <ul class="space-y-2 text-[14.5px] text-ink/80">
+      <li class="flex gap-3 rounded-xl border border-line bg-card px-5 py-3.5"><span class="text-cobalt font-bold shrink-0">✓</span><span>"AI로 뭔가 만들어봐야지" 하고 <b class="text-ink">몇 달째 미루고만</b> 있다.</span></li>
+      <li class="flex gap-3 rounded-xl border border-line bg-card px-5 py-3.5"><span class="text-cobalt font-bold shrink-0">✓</span><span>만들긴 했는데 <b class="text-ink">한 번 쓰고 버려지는</b> 일회성 결과물에서 벗어나고 싶다.</span></li>
+      <li class="flex gap-3 rounded-xl border border-line bg-card px-5 py-3.5"><span class="text-cobalt font-bold shrink-0">✓</span><span>혼자 하면 자꾸 늘어져서, <b class="text-ink">같이 끝까지 갈 동료</b>가 필요하다.</span></li>
+      <li class="flex gap-3 rounded-xl border border-line bg-card px-5 py-3.5"><span class="text-cobalt font-bold shrink-0">✓</span><span>다들 AI로 만든다는데 <b class="text-ink">나만 뒤처지는 것 같아</b> 조급하다.</span></li>
+      <li class="flex gap-3 rounded-xl border border-line bg-card px-5 py-3.5"><span class="text-cobalt font-bold shrink-0">✓</span><span>7/5 킥오프와 8/9 쇼케이스, <b class="text-ink">오프라인 참여가 가능</b>하다.</span></li>
+    </ul>
+  </section>
+
+  <!-- ───────────────── 지원 폼 ───────────────── -->
+  <section class="space-y-7 scroll-mt-8" id="apply">
+    <div class="border-t-[1.5px] border-ink/15 pt-12 space-y-2">
+      <p class="klabel text-clay">Apply now</p>
+      <h2 class="text-[26px] font-extrabold tracking-tight">3기 지원하기</h2>
+      <p class="text-[13.5px] text-ink/55">* 표시는 필수 항목입니다. 팀은 선착순이니 서둘러주세요!</p>
+    </div>
+
+    <form class="space-y-5" onsubmit="event.preventDefault(); alert('시안입니다 — 실제 제출은 동작하지 않아요');">
+      <!-- 이름 -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-[14px] font-semibold text-ink/85">이름 <span class="text-clay">*</span></label>
+        <input class="rounded-xl border border-line bg-card px-4 py-3.5 text-[14px] placeholder-ink/35 outline-none focus:border-cobalt focus:ring-2 focus:ring-cobalt/15 transition" placeholder="홍길동" required />
+      </div>
+
+      <!-- 전화번호 -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-[14px] font-semibold text-ink/85">전화번호 <span class="text-clay">*</span></label>
+        <input type="tel" class="rounded-xl border border-line bg-card px-4 py-3.5 text-[14px] placeholder-ink/35 outline-none focus:border-cobalt focus:ring-2 focus:ring-cobalt/15 transition" placeholder="010-0000-0000" required />
+      </div>
+
+      <!-- 이메일 -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-[14px] font-semibold text-ink/85">이메일 <span class="text-clay">*</span></label>
+        <p class="text-[12.5px] text-ink/50 -mt-0.5">구글 캘린더 밋업 초대를 받을 Gmail 주소로 적어주세요.</p>
+        <input type="email" class="rounded-xl border border-line bg-card px-4 py-3.5 text-[14px] placeholder-ink/35 outline-none focus:border-cobalt focus:ring-2 focus:ring-cobalt/15 transition" placeholder="you@gmail.com" required />
+      </div>
+
+      <!-- GitHub -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-[14px] font-semibold text-ink/85">GitHub 아이디 <span class="text-clay">*</span></label>
+        <p class="text-[12.5px] text-ink/50 -mt-0.5">아직 없다면 <a href="https://github.com/signup" target="_blank" class="text-cobalt underline">github.com/signup</a> 에서 1분이면 만들 수 있어요. 챌린지 내내 공용 레포에 매일 커밋하게 돼요.</p>
+        <input class="rounded-xl border border-line bg-card px-4 py-3.5 text-[14px] placeholder-ink/35 outline-none focus:border-cobalt focus:ring-2 focus:ring-cobalt/15 transition" placeholder="github-username" required />
+      </div>
+
+      <!-- AI 사용 빈도 -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-[14px] font-semibold text-ink/85">평소 AI를 얼마나 쓰세요? <span class="text-clay">*</span></label>
+        <p class="text-[12.5px] text-ink/50 -mt-0.5">정답은 없어요. 솔직하게 골라주시면 팀 구성과 난이도 조절에 참고해요.</p>
+        <div class="space-y-2">
+          <label class="flex gap-3 items-start rounded-xl border border-line bg-card px-4 py-3.5 text-[14px] cursor-pointer hover:border-cobalt/50 transition"><input type="radio" name="ai_level" class="mt-0.5 accent-cobalt" required /><span><b class="text-ink">거의 안 써요</b> — AI가 아직 막연하고 두려워요.</span></label>
+          <label class="flex gap-3 items-start rounded-xl border border-line bg-card px-4 py-3.5 text-[14px] cursor-pointer hover:border-cobalt/50 transition"><input type="radio" name="ai_level" class="mt-0.5 accent-cobalt" /><span><b class="text-ink">가끔 써요</b> — ChatGPT로 질문하거나 글 정리하는 정도예요.</span></label>
+          <label class="flex gap-3 items-start rounded-xl border border-line bg-card px-4 py-3.5 text-[14px] cursor-pointer hover:border-cobalt/50 transition"><input type="radio" name="ai_level" class="mt-0.5 accent-cobalt" /><span><b class="text-ink">매일 써요</b> — 업무에 적극 활용하고 프롬프트도 제법 잘 써요.</span></label>
+          <label class="flex gap-3 items-start rounded-xl border border-line bg-card px-4 py-3.5 text-[14px] cursor-pointer hover:border-cobalt/50 transition"><input type="radio" name="ai_level" class="mt-0.5 accent-cobalt" /><span><b class="text-ink">만들어봤어요</b> — Cursor·Lovable·v0 등으로 뭔가 빌드해본 적 있어요.</span></label>
+          <label class="flex gap-3 items-start rounded-xl border border-line bg-card px-4 py-3.5 text-[14px] cursor-pointer hover:border-cobalt/50 transition"><input type="radio" name="ai_level" class="mt-0.5 accent-cobalt" /><span><b class="text-ink">배포까지 해봤어요</b> — AI로 직접 서비스/제품을 만들어 배포한 경험이 있어요.</span></label>
+        </div>
+      </div>
+
+      <!-- 지원 팀 -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-[14px] font-semibold text-ink/85">지원하고 싶은 팀 <span class="text-clay">*</span></label>
+        <p class="text-[12.5px] text-clay -mt-0.5">⏳ 팀별 정원이 있어요. 원하는 팀이 마감될 수 있으니 빠르게 골라주세요.</p>
+        <select class="rounded-xl border border-line bg-card px-4 py-3.5 text-[14px] outline-none focus:border-cobalt focus:ring-2 focus:ring-cobalt/15 transition" required>
+          <option value="">선택해주세요</option>
+          <option>🚀 AI Builder (나만의 서비스)</option>
+          <option>⚙️ AI Product Ops (업무 자동화)</option>
+          <option>🎨 AI Designer (비주얼/플랫폼/인터랙션)</option>
+        </select>
+      </div>
+
+      <!-- 유입 경로 -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-[14px] font-semibold text-ink/85">베프디, 어떻게 알게 되셨어요? <span class="text-clay">*</span></label>
+        <p class="text-[12.5px] text-ink/50 -mt-0.5">가장 가까운 걸 골라주세요. 더 좋은 챌린지를 만드는 데 참고해요.</p>
+        <select class="rounded-xl border border-line bg-card px-4 py-3.5 text-[14px] outline-none focus:border-cobalt focus:ring-2 focus:ring-cobalt/15 transition" required>
+          <option value="">선택해주세요</option>
+          <option>지인·동료 추천</option>
+          <option>이전 기수에 참여했었어요</option>
+          <option>인스타그램</option>
+          <option>디스코드·커뮤니티</option>
+          <option>웨잇리스트로 신청해뒀어요</option>
+          <option>기타</option>
+        </select>
+      </div>
+
+      <!-- 주관식 -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-[14px] font-semibold text-ink/85">베프디에 지원하기로 마음먹은 이야기를 들려주세요 <span class="text-clay">*</span></label>
+        <p class="text-[12.5px] text-ink/55 -mt-0.5 leading-relaxed">
+          잘 쓰려 하지 않아도 돼요. <b class="text-ink/75">무엇이 당신을 베프디까지 오게 했는지(계기)</b>,
+          요즘 'AI로 이건 꼭 해보고 싶다' 싶은데 아직 못 한 게 있는지,
+          그리고 이 4주 끝에 <b class="text-ink/75">어떤 AI 메이커가 되어 있으면 좋겠는지</b> — 떠오르는 대로 편하게요.
+        </p>
+        <div class="rounded-xl bg-cobalt-tint border border-cobalt/25 px-4 py-3 text-[12.5px] text-cobalt/90 leading-relaxed flex gap-2">
+          <span class="shrink-0">💡</span>
+          <span>그냥 궁금해서 묻는 게 아니에요. 운영진(모더레이터)이 적어주신 이야기로 <b>한 분 한 분의 배경과 목표를 미리 이해</b>해서, 4주 동안 <b>당신에게 맞는 방향으로 챙겨드리려고요.</b> 솔직할수록 더 잘 도와드릴 수 있어요.</span>
+        </div>
+        <textarea rows="10" class="rounded-xl border border-line bg-card px-4 py-3.5 text-[14px] placeholder-ink/35 outline-none focus:border-cobalt focus:ring-2 focus:ring-cobalt/15 transition resize-none leading-relaxed" placeholder="예) 사실 OO를 만들어보고 싶은데, 어디서부터 손대야 할지 몰라 계속 미루고 있었어요.&#10;&#10;그러다 ...를 보고 '이번엔 진짜 해보자' 싶었어요.&#10;&#10;이번 4주가 끝났을 땐 ...한 메이커가 되어 있으면 좋겠어요." required></textarea>
+      </div>
+
+      <!-- 동의 -->
+      <label class="flex gap-3 items-start rounded-xl border border-line bg-card px-4 py-4 text-[14px] cursor-pointer hover:border-cobalt/50 transition">
+        <input type="checkbox" class="mt-0.5 h-4 w-4 shrink-0 accent-cobalt" required />
+        <span class="leading-relaxed"><span class="font-semibold text-ink">개인정보 수집·이용 동의 </span><span class="text-clay">*</span><br />
+          <span class="text-ink/60 text-[13px]">지원 심사 및 챌린지 운영 안내를 위해 <b class="text-ink/80">이름·전화번호·이메일</b>을 수집·이용하는 데 동의합니다. 챌린지 종료 후에는 안전하게 폐기돼요.</span></span>
+      </label>
+
+      <label class="flex gap-3 items-start rounded-xl border border-line bg-card px-4 py-4 text-[14px] cursor-pointer hover:border-cobalt/50 transition">
+        <input type="checkbox" class="mt-0.5 h-4 w-4 shrink-0 accent-cobalt" required />
+        <span class="leading-relaxed"><span class="font-semibold text-ink">콘텐츠 · 사진 활용 동의 </span><span class="text-clay">*</span><br />
+          <span class="text-ink/60 text-[13px]">챌린지 과정에서 촬영된 <b class="text-ink/80">사진·영상</b>과 나눈 내용(인사이트, 후기, 결과물 요약 등)이 BF.D의 <b class="text-ink/80">홍보·마케팅 콘텐츠</b>(SNS, 모집 페이지, 후기 등)로 활용될 수 있음에 동의합니다. 초상권·저작권을 침해하는 형태로는 사용하지 않으며, 민감한 식별이 필요한 경우 별도로 동의를 구합니다.</span></span>
+      </label>
+
+      <button type="submit" class="w-full rounded-xl bg-cobalt hover:bg-cobalt-soft px-6 py-4 text-[15px] font-bold text-paper transition">지원하기 →</button>
+    </form>
+  </section>
+
+  <footer class="pt-8 text-center">
+    <p class="serif-it text-cobalt text-xl">Best friend of designers,</p>
+    <p class="klabel text-ink/40 mt-1">BF.D</p>
+  </footer>
+
+</main>
+
+<!-- ───────────────── 후기 월 인터랙션 ───────────────── -->
+<script>
+const MEMBERS = [
+  { name:'김미정', role:'Product Designer', color:'#2B3A8C', quote:'AI 찐따가 자신감을 얻었습니다. 한달 전은 두려움만 가득했는데, AI에 대한 장벽을 낮춰준 챌린지였어요. 성취감도 대박!' },
+  { name:'이지은', role:'UX Designer', color:'#C4623F', quote:'"일단 해봐"를 실천하게 된 소중한 한 달이었어요. 인사이트도 많이 얻고 갑니다!' },
+  { name:'주성민', role:'Designer', color:'#2F7E6E', quote:'막연하게 바이브코딩만 생각했는데, 실행해서 결과까지 만들어낼 수 있었어요.' },
+  { name:'최윤정', role:'Designer', color:'#3E51A8', quote:'꾸준히가 어려웠는데 꾸준히를 할 수 있게 큰 도움을 준 챌린지였어요!' },
+  { name:'남궁예슬', role:'Freelance Designer', color:'#A8553A', quote:'새로운 툴에 두려움이 많은 디자이너인데, 챌린지 덕분에 클로드랑 꽤 친해진 것 같아요.' },
+  { name:'고정원', role:'Designer', color:'#356A8C', quote:'매일매일 일단 해보려고 노력했어요. 다른 분들이 공유해주시는 꿀팁도 너무 좋았고요!' },
+  { name:'이승은', role:'Designer', color:'#B5603F', quote:'맨날 미루기만 하던 걸 드디어 제대로 하게 해줬어요. 너무 좋은 분들도 만났습니다!' },
+  { name:'성하현', role:'Designer', color:'#2B3A8C', quote:'직접 결과물을 만들어봤다는 사실만으로도 정말 뿌듯한 시간이었습니다!' },
+  { name:'소재연', role:'Designer', color:'#2C6E63', quote:'서로의 지식과 경험을 나누며 함께 성장할 수 있었던 것 같아요.' },
+  { name:'김예운', role:'Product Designer', color:'#C4623F', quote:'바이브코딩에 대한 실질적인 경험을 쌓을 수 있었어요. 너무 좋은 커뮤니티!' },
+  { name:'안수현', role:'Designer · 운영진', color:'#3E51A8', quote:'이렇게 자발적으로 후기를 남겨주시다니, 또 한번 감동받는 우리 챌린저분들.' },
+];
+const MAP_STRINGS = [
+  "00011111111111111111101111111011111111111111110000",
+  "00111111111111111111111101111111111111101111111000",
+  "00011111101111111111111111111111110101111111111000",
+  "00111111111111111111111111111111111111111111001100",
+  "00011111111111111111011111110111111101111111111000",
+  "01110111010110000010010000000001000000011111010100",
+  "00111101000000000000000000000000000000010110100000",
+  "00111000000000000000000000000000000000000011010000",
+  "01010100000000000000000000000000000000000000001100",
+];
+const PAPER = '#F6F1E7';
+const wall = document.getElementById('wall');
+let midx = 0;
+const grid = document.createElement('div'); grid.className='overflow-hidden';
+const col = document.createElement('div'); col.className='flex flex-col';
+MAP_STRINGS.forEach(rowStr => {
+  const row = document.createElement('div'); row.className='flex justify-center gap-px pb-px';
+  rowStr.split('').forEach(c => {
+    if (c === '1') {
+      const m = MEMBERS[midx % MEMBERS.length]; midx++;
+      const b = document.createElement('button');
+      b.className='h-6 shrink-0 rounded-[7px] overflow-hidden border-0 p-0 cursor-pointer flex items-center justify-center text-white text-[10px] font-bold transition-opacity duration-300 hover:opacity-75';
+      b.style.flex='0 0 24px'; b.style.background=m.color; b.textContent=m.name[0];
+      b.addEventListener('mouseenter', e => showTip(e, m));
+      b.addEventListener('mouseleave', hideTip);
+      b.addEventListener('click', e => { e.stopPropagation(); if (activeBtn === b) { hideTip(); } else { showTip(e, m); activeBtn = b; } });
+      row.appendChild(b);
+    } else {
+      const d = document.createElement('div'); d.className='h-6 shrink-0'; d.style.flex='0 0 24px'; row.appendChild(d);
+    }
+  });
+  col.appendChild(row);
+});
+grid.appendChild(col); wall.appendChild(grid);
+const grad = document.createElement('div'); grad.className='pointer-events-none absolute inset-0';
+grad.style.background='linear-gradient(to right,'+PAPER+' 0%,transparent 18%,transparent 82%,'+PAPER+' 100%)';
+wall.appendChild(grad);
+let tip, activeBtn;
+function showTip(e, m){
+  hideTip();
+  const r = e.currentTarget.getBoundingClientRect();
+  const c = wall.getBoundingClientRect();
+  const x = Math.max(144, Math.min(r.left - c.left + r.width/2, c.width - 144));
+  const y = r.top - c.top;
+  tip = document.createElement('div');
+  tip.className='absolute z-50 pointer-events-none';
+  tip.style.left=x+'px'; tip.style.top=y+'px'; tip.style.transform='translate(-50%, calc(-100% - 10px))';
+  tip.innerHTML = `<div class="tip-card bg-card rounded-2xl p-4 w-[272px] border border-line">
+      <div class="flex items-center gap-3 mb-2.5">
+        <div class="h-10 w-10 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0" style="background:${m.color}">${m.name[0]}</div>
+        <div><p class="text-[14px] font-semibold text-ink leading-tight">${m.name}</p><p class="text-[11px] text-ink/45 mt-0.5">${m.role} · BF.D</p></div>
+      </div>
+      <p class="text-[13px] text-ink/70 leading-relaxed">"${m.quote}"</p>
+    </div>
+    <div class="w-0 h-0 mx-auto border-l-[9px] border-r-[9px] border-t-[9px] border-l-transparent border-r-transparent" style="border-top-color:#FFFDF8"></div>`;
+  wall.appendChild(tip);
+}
+function hideTip(){ if(tip){ tip.remove(); tip=null; } activeBtn=null; }
+document.addEventListener('click', hideTip);
+</script>
+</body>
+</html>

@@ -21,6 +21,38 @@
     ::selection { background:#7c3aed; color:#fff; }
     .ph { background: rgba(251,191,36,.12); border:1px dashed rgba(251,191,36,.5); border-radius:6px; padding:1px 6px; color:#fcd34d; font-size:.85em; }
     .tip-card { box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+
+    /* ── 기수 '파일' 카드 ── */
+    .gen-file { position: relative; }
+    .gen-file::before {  /* 파일 폴더 탭 */
+      content:""; position:absolute; top:-7px; left:16px; width:38px; height:9px;
+      background:inherit; border:1px solid; border-color:inherit; border-bottom:none;
+      border-radius:5px 5px 0 0;
+    }
+    .gen-file .gen-ico { transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
+    .gen-file:hover .gen-ico { transform: translateY(-2px) rotate(-6deg); }
+
+    /* ── 플로팅 모달 (작은 콘텐츠 카드) ── */
+    .gen-modal-root { position:fixed; inset:0; z-index:100; display:none; align-items:center; justify-content:center; padding:20px; }
+    .gen-modal-root.show { display:flex; }
+    .gen-backdrop { position:absolute; inset:0; background:rgba(9,9,11,.55); backdrop-filter:blur(3px); opacity:0; transition:opacity .26s ease; }
+    .gen-modal-root.anim .gen-backdrop { opacity:1; }
+    .gen-card {
+      position:relative; width:min(380px,100%); max-height:82vh; overflow-y:auto;
+      background:#161618; border:1px solid #2a2a30; border-radius:18px;
+      box-shadow:0 24px 70px -10px rgba(0,0,0,.7);
+      opacity:0; transform:translateY(14px) scale(.9); transform-origin:center;
+      transition: opacity .26s ease, transform .42s cubic-bezier(.34,1.56,.64,1);
+    }
+    .gen-modal-root.anim .gen-card { opacity:1; transform:none; }
+    .gen-card::-webkit-scrollbar { width:0; }
+    .gen-close {
+      position:absolute; top:12px; right:12px; z-index:2; width:30px; height:30px;
+      display:flex; align-items:center; justify-content:center; border-radius:9px;
+      background:rgba(255,255,255,.06); border:none; color:#a1a1aa; cursor:pointer; font-size:14px;
+      transition:background .15s, color .15s;
+    }
+    .gen-close:hover { background:rgba(255,255,255,.12); color:#fff; }
   </style>
 </head>
 
@@ -60,25 +92,31 @@
   <section class="space-y-4">
     <div>
       <h2 class="text-lg font-semibold text-zinc-100">베프디는 이렇게 진화해왔어요</h2>
-      <p class="text-sm text-zinc-500 mt-1">기수를 거치며 한 단계씩 더 나아가고 있어요. 3기는 그 다음 챕터예요.</p>
+      <p class="text-sm text-zinc-500 mt-1">📂 카드를 누르면 그 기수의 이야기가 열려요.</p>
     </div>
 
-    <div class="space-y-2.5">
+    <div class="grid grid-cols-3 gap-2.5 sm:gap-3">
       <!-- 1기 -->
-      <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
-        <p class="font-bold text-zinc-500 text-sm shrink-0 sm:w-[52px]">1기</p>
-        <p class="text-[14px] text-zinc-400 leading-relaxed">AI 바이브코딩, <b class="text-zinc-300">시작이 막막한 사람</b>들을 위해. 일단 두려움을 깨고 한 번 만들어봤어요.</p>
-      </div>
+      <button type="button" data-gen="1" class="gen-file group rounded-xl border border-zinc-800 bg-zinc-900/50 p-3.5 sm:p-4 text-left flex flex-col gap-1.5 hover:border-zinc-600 hover:-translate-y-0.5 transition cursor-pointer">
+        <span class="gen-ico text-xl">🗂️</span>
+        <span class="font-bold text-zinc-300 text-sm">1기</span>
+        <span class="text-[11.5px] sm:text-[12px] text-zinc-500 leading-snug">두려움을 깨고 일단 만들어봤어요</span>
+        <span class="mt-1.5 text-[11px] text-zinc-600 group-hover:text-violet-400 transition">열어보기 →</span>
+      </button>
       <!-- 2기 -->
-      <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
-        <p class="font-bold text-zinc-500 text-sm shrink-0 sm:w-[52px]">2기</p>
-        <p class="text-[14px] text-zinc-400 leading-relaxed">AI를 <b class="text-zinc-300">나와 내 일에 맞게 잘 활용</b>하는 사람으로. 도구를 내 것으로 길들였어요.</p>
-      </div>
+      <button type="button" data-gen="2" class="gen-file group rounded-xl border border-zinc-800 bg-zinc-900/50 p-3.5 sm:p-4 text-left flex flex-col gap-1.5 hover:border-zinc-600 hover:-translate-y-0.5 transition cursor-pointer">
+        <span class="gen-ico text-xl">🗂️</span>
+        <span class="font-bold text-zinc-300 text-sm">2기</span>
+        <span class="text-[11.5px] sm:text-[12px] text-zinc-500 leading-snug">도구를 내 것으로 길들였어요</span>
+        <span class="mt-1.5 text-[11px] text-zinc-600 group-hover:text-violet-400 transition">열어보기 →</span>
+      </button>
       <!-- 3기 (이번 · 강조) -->
-      <div class="rounded-xl border border-violet-500/50 bg-violet-500/[0.08] p-4 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
-        <p class="font-bold text-violet-300 text-sm shrink-0 sm:w-[52px]">3기 <span class="text-[10px] align-top">NOW</span></p>
-        <p class="text-[14px] text-zinc-200 leading-relaxed">대망의 3기. 더 이상 'AI 쓰레기'가 아니라, <b class="text-violet-300">사이클이 도는 진짜 제품</b>을 만들 수 있는 사람으로.</p>
-      </div>
+      <button type="button" data-gen="3" class="gen-file group rounded-xl border border-violet-500/50 bg-violet-500/[0.08] p-3.5 sm:p-4 text-left flex flex-col gap-1.5 hover:border-violet-400 hover:-translate-y-0.5 transition cursor-pointer">
+        <span class="gen-ico text-xl">📂</span>
+        <span class="font-bold text-violet-300 text-sm">3기 <span class="text-[9px] align-top">NOW</span></span>
+        <span class="text-[11.5px] sm:text-[12px] text-violet-200/80 leading-snug">사이클이 도는 진짜 제품으로</span>
+        <span class="mt-1.5 text-[11px] text-violet-400/70 group-hover:text-violet-300 transition">열어보기 →</span>
+      </button>
     </div>
   </section>
 
@@ -405,6 +443,83 @@
   <footer class="pt-6 text-center text-xs text-zinc-600">Best friend of designers, BF.D</footer>
 
 </main>
+
+<!-- ───────────────── 기수 '파일' 플로팅 모달 ───────────────── -->
+<div id="genModal" class="gen-modal-root" aria-hidden="true">
+  <div class="gen-backdrop" data-close></div>
+  <div class="gen-card" role="dialog" aria-modal="true" aria-labelledby="genHead">
+    <button class="gen-close" data-close aria-label="닫기">✕</button>
+    <div id="genBody" class="p-6"></div>
+  </div>
+</div>
+
+<script>
+/* 기수별 콘텐츠 — 실제 내용/사진은 ph 부분을 채워주세요 */
+const GEN = {
+  '1': {
+    label:'1기', tag:'FIRST CHAPTER', accent:'#a78bfa',
+    head:'두려움을 깨고, 일단 만들어봤어요',
+    period:'기간: <span class="ph">1기 기간 넣기</span>',
+    desc:'AI 바이브코딩이 막막했던 디자이너들이 처음 모였어요. "내 손으로 뭔가를 만든다"는 첫 경험에 집중한 기수예요.',
+    points:['시작의 두려움 깨기','각자 첫 결과물 완성','완주율 100%'],
+  },
+  '2': {
+    label:'2기', tag:'SECOND CHAPTER', accent:'#a78bfa',
+    head:'도구를 내 것으로 길들였어요',
+    period:'기간: <span class="ph">2기 기간 넣기</span>',
+    desc:'AI를 나와 내 일에 맞게 잘 활용하는 데 초점을 맞춘 기수. 막연한 도구가 아니라 손에 익은 무기가 됐어요.',
+    points:['업무·작업에 AI 적용','반복 활용 습관화','완주율 100%'],
+  },
+  '3': {
+    label:'3기', tag:'NOW · 모집중', accent:'#c4b5fd',
+    head:'사이클이 도는 진짜 제품으로',
+    period:'킥오프: <b class="text-zinc-200">7/5 (일)</b> · 쇼케이스: <b class="text-zinc-200">8/9 (일)</b>',
+    desc:'더 이상 한 번 쓰고 버려지는 결과물이 아니라, 실제로 굴러가는 제품을 만들어 배포하고 운영까지 해보는 챕터예요.',
+    points:['아이디어 → 배포된 제품','4주 + 오프라인 쇼케이스','3개 팀, 선착순 모집'],
+  },
+};
+
+const root = document.getElementById('genModal');
+const body = document.getElementById('genBody');
+let closeTimer;
+
+function openGen(g){
+  const d = GEN[g]; if(!d) return;
+  clearTimeout(closeTimer);
+  body.innerHTML = `
+    <div class="flex items-center justify-between mb-4 pr-8">
+      <span class="text-[10px] font-semibold tracking-[.14em] uppercase" style="color:${d.accent}">${d.tag}</span>
+      <span class="text-3xl">📂</span>
+    </div>
+    <h3 id="genHead" class="text-xl font-bold text-zinc-100 leading-snug">${d.head}</h3>
+    <p class="text-xs text-zinc-500 mt-2">${d.period}</p>
+    <p class="text-[14px] text-zinc-400 leading-relaxed mt-4">${d.desc}</p>
+    <ul class="mt-4 space-y-2">
+      ${d.points.map(p=>`<li class="flex gap-2.5 items-start text-[13.5px] text-zinc-300"><span style="color:${d.accent}">✦</span><span>${p}</span></li>`).join('')}
+    </ul>
+    <div class="mt-5 rounded-lg border border-dashed border-zinc-700 bg-zinc-900/40 px-3.5 py-3 text-[12px] text-zinc-500 leading-relaxed">
+      📸 <b class="text-zinc-400">대표 결과물·사진·후기</b>를 여기에 넣으면 더 생생해져요. <span class="ph">콘텐츠 넣기</span>
+    </div>`;
+  root.classList.add('show');
+  root.offsetWidth;            // reflow → 트랜지션 발동
+  root.classList.add('anim');
+  root.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}
+
+function closeGen(){
+  root.classList.remove('anim');
+  root.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  closeTimer = setTimeout(()=>root.classList.remove('show'), 420);
+}
+
+document.querySelectorAll('.gen-file').forEach(btn=>{
+  btn.addEventListener('click', ()=> openGen(btn.dataset.gen));
+});
+root.querySelectorAll('[data-close]').forEach(el=> el.addEventListener('click', closeGen));
+document.addEventListener('keydown', e=>{ if(e.key==='Escape' && root.classList.contains('anim')) closeGen(); });
+</script>
 
 <!-- ───────────────── 후기 월 인터랙션 (마우스 hover + 모바일 탭 지원) ───────────────── -->
 <script>

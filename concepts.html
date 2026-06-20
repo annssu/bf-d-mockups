@@ -1,0 +1,401 @@
+<title>BF.D 3기 지원서 — 디자인 컨셉 5종</title>
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --paper:#f3ead9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:"Apple SD Gothic Neo","Pretendard",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+    background:#e7e3db;
+    color:#1a1a1a;
+    -webkit-font-smoothing:antialiased;
+    word-break:keep-all;
+    line-height:1.5;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:48px 20px 100px}
+
+  /* ── page intro ── */
+  .lede{max-width:720px;margin:0 auto 8px}
+  .lede .kicker{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.18em;color:#8a8276;text-transform:uppercase}
+  .lede h1{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:10px 0 12px;line-height:1.25}
+  .lede p{color:#5f594e;font-size:15px;line-height:1.7}
+  .legend{max-width:720px;margin:22px auto 0;background:#fff;border:1px solid #d9d2c5;border-radius:14px;padding:16px 18px;font-size:13.5px;color:#5f594e;line-height:1.7}
+  .legend b{color:#1a1a1a}
+
+  /* ── concept block ── */
+  .concept{margin-top:64px}
+  .concept-head{max-width:1140px;margin:0 auto 22px;display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap}
+  .cnum{font-family:ui-monospace,Menlo,monospace;font-size:13px;font-weight:700;background:#1a1a1a;color:#fff;border-radius:999px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .cmeta{flex:1;min-width:240px}
+  .cmeta h2{font-size:22px;font-weight:800;letter-spacing:-.01em}
+  .cmeta .tagline{font-size:14px;color:#6b6457;margin-top:3px}
+  .cmeta .spec{font-size:12.5px;color:#8a8276;margin-top:8px;line-height:1.65}
+  .swatches{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+  .sw{width:30px;height:30px;border-radius:8px;border:1px solid rgba(0,0,0,.12);position:relative}
+  .sw span{position:absolute;bottom:-17px;left:50%;transform:translateX(-50%);font-size:9px;color:#9a9284;font-family:ui-monospace,monospace;white-space:nowrap}
+
+  .stage{display:flex;justify-content:center;padding:8px}
+  /* phone mockup frame */
+  .phone{width:380px;max-width:100%;border-radius:30px;overflow:hidden;box-shadow:0 24px 60px -18px rgba(0,0,0,.45),0 0 0 1px rgba(0,0,0,.06);background:#fff}
+  .screen{height:620px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .screen::-webkit-scrollbar{width:0}
+  .pad{padding:26px 22px 36px}
+
+  /* grain helper */
+  .grain::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E")}
+
+  .scroll-hint{text-align:center;font-size:11px;color:#a59c8c;margin-top:10px;font-family:ui-monospace,monospace}
+
+  /* reset inner */
+  .phone h1,.phone h2,.phone h3,.phone p,.phone span,.phone label,.phone li{line-height:1.5}
+  .field{width:100%;border-radius:11px;padding:12px 14px;font-size:13px;font-family:inherit;outline:none;border:1px solid #ccc;background:#fff;color:#1a1a1a}
+  .btn{display:block;width:100%;text-align:center;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:14px;padding:14px;border-radius:12px}
+  .radio-row{display:flex;gap:10px;align-items:flex-start;border-radius:11px;padding:11px 13px;font-size:12.5px;margin-bottom:7px}
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .stat{border-radius:12px;padding:13px;text-align:center}
+  .stat .n{font-size:20px;font-weight:800}
+  .stat .l{font-size:10.5px;margin-top:3px}
+  .label{font-size:12.5px;font-weight:700;display:block;margin-bottom:6px}
+  svg{display:block}
+</style>
+
+<div class="wrap">
+
+  <div class="lede">
+    <div class="kicker">BF.D 3기 · 지원서 리디자인</div>
+    <h1>완전히 다른 5가지 디자인 컨셉</h1>
+    <p>블랙·퍼플을 벗고, 따뜻한 종이 질감 위에 손그림 한 스푼을 더했어요. 다섯 개 모두 <b>같은 실제 지원서 내용</b>(헤드라인·수치·팀카드·입력폼)을 얹어서, 디자인만 바뀌었을 때 느낌을 바로 비교할 수 있게 만들었어요. 각 폰 화면은 <b>위아래로 스크롤</b>돼요.</p>
+  </div>
+  <div class="legend">
+    <b>5개 컨셉 한눈에 —</b> ① 리소 워크숍(코발트·종이·손그림 커뮤니티) · ② 에디토리얼 매거진(세리프·테라코타·전문적) · ③ 포스터 펑크(하늘색 단색·브러시 레터링·에너지) · ④ 스케치북 노트(친구 같은 손글씨·블러시) · ⑤ 콰이엇 코발트(미니멀·신뢰감·키치는 한 방울). 마음에 드는 번호 알려주시면 그 방향으로 전체 페이지를 완성할게요.
+  </div>
+
+  <!-- ════════ CONCEPT 1 — RISO WORKSHOP ════════ -->
+  <section class="concept">
+    <div class="concept-head">
+      <div class="cnum">1</div>
+      <div class="cmeta">
+        <h2>리소 워크숍 — Riso Workshop</h2>
+        <div class="tagline">크림 종이 + 코발트 잉크 + 손그림 커뮤니티. 따뜻하고 “함께” 만드는 작업실 무드.</div>
+        <div class="spec">Type: 굵은 산세리프 + 모노 캡션 · Texture: 리소그래프 그레인 · Kitsch: 손잡고 도는 사람들 라인 드로잉</div>
+      </div>
+      <div class="swatches">
+        <div class="sw" style="background:#f3ead9"><span>#F3EAD9</span></div>
+        <div class="sw" style="background:#2438c8"><span>#2438C8</span></div>
+        <div class="sw" style="background:#1a1a1a"><span>#1A1A1A</span></div>
+        <div class="sw" style="background:#e8604c"><span>#E8604C</span></div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="phone">
+        <div class="screen grain" style="position:relative;background:#f3ead9;color:#1a1a1a">
+          <div class="pad" style="position:relative;z-index:1">
+            <!-- badge -->
+            <div style="display:flex;gap:7px;align-items:center;margin-bottom:18px">
+              <span style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.12em;border:1.5px solid #2438c8;color:#2438c8;border-radius:999px;padding:4px 10px;font-weight:700">BF.D 3기</span>
+              <span style="font-family:ui-monospace,monospace;font-size:10px;background:#2438c8;color:#fff;border-radius:999px;padding:5px 10px;font-weight:700">D-7 마감</span>
+            </div>
+            <!-- hero illo -->
+            <svg viewBox="0 0 300 96" width="100%" height="78" style="margin-bottom:6px;color:#2438c8" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+              <g>
+                <circle cx="42" cy="26" r="9"/><path d="M42 35 v22 M42 41 l-16 6 M42 41 l16 6 M42 57 l-11 16 M42 57 l11 16"/>
+                <circle cx="110" cy="20" r="9"/><path d="M110 29 v22 M110 35 l-18 -4 M110 35 l18 8 M110 51 l-12 17 M110 51 l12 17"/>
+                <circle cx="182" cy="24" r="9"/><path d="M182 33 v22 M182 39 l-18 6 M182 39 l18 -2 M182 55 l-11 17 M182 55 l11 17"/>
+                <circle cx="252" cy="20" r="9"/><path d="M252 29 v22 M252 35 l-16 8 M252 35 l16 4 M252 51 l-12 18 M252 51 l12 18"/>
+                <path d="M58 47 q14 -10 34 -12 M128 43 q18 6 36 2 M200 41 q16 0 36 2" stroke-width="2.6"/>
+              </g>
+            </svg>
+            <h1 style="font-size:25px;font-weight:850;letter-spacing:-.02em;line-height:1.28">한 번 쓰고 버리는<br>결과물 말고,<br><span style="color:#2438c8">사이클이 도는<br>진짜 제품</span>을 만들어요.</h1>
+            <p style="font-size:13px;color:#5b5446;margin-top:12px;line-height:1.7">디자이너들이 모여 4주 동안 실제로 굴러가는 제품을 만들고 배포까지 해보는 챌린지예요.</p>
+
+            <!-- stats -->
+            <div class="stat-grid" style="margin-top:20px">
+              <div class="stat" style="background:#fff;border:1.5px solid #1a1a1a"><div class="n">100%</div><div class="l" style="color:#6b6457">1·2기 완주율</div></div>
+              <div class="stat" style="background:#fff;border:1.5px solid #1a1a1a"><div class="n">4주</div><div class="l" style="color:#6b6457">챌린지 기간</div></div>
+              <div class="stat" style="background:#2438c8;color:#fff"><div class="n">3팀</div><div class="l" style="opacity:.8">목표별 구성</div></div>
+              <div class="stat" style="background:#fff;border:1.5px solid #1a1a1a"><div class="n">매일1+</div><div class="l" style="color:#6b6457">툴·스킬 공유</div></div>
+            </div>
+
+            <!-- team card -->
+            <div style="margin-top:20px;background:#fff;border:1.5px solid #1a1a1a;border-radius:16px;padding:16px">
+              <div style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.1em;color:#2438c8">TEAM 01</div>
+              <div style="font-size:16px;font-weight:800;margin-top:3px">🚀 AI Builder</div>
+              <p style="font-size:12.5px;color:#5b5446;margin-top:5px;line-height:1.6">내가 풀고 싶던 문제로 실제 사용자가 쓰는 서비스를 0부터 만들어 배포하고 운영해요.</p>
+            </div>
+
+            <!-- form -->
+            <div style="margin-top:22px">
+              <span class="label">베프디에 지원한 이야기 <span style="color:#2438c8">*</span></span>
+              <textarea class="field" rows="3" style="border:1.5px solid #cfc6b4;background:#fff;resize:none" placeholder="떠오르는 대로 편하게요…"></textarea>
+            </div>
+            <button class="btn" style="background:#2438c8;color:#fff;margin-top:16px">지원하기 →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">↕ 폰 화면을 스크롤해 보세요</div>
+  </section>
+
+  <!-- ════════ CONCEPT 2 — EDITORIAL MAGAZINE ════════ -->
+  <section class="concept">
+    <div class="concept-head">
+      <div class="cnum">2</div>
+      <div class="cmeta">
+        <h2>에디토리얼 매거진 — Editorial</h2>
+        <div class="tagline">세리프 디스플레이 + 테라코타. 잡지 표지처럼 우아하고 전문적, 신뢰감이 가장 높은 방향.</div>
+        <div class="spec">Type: 세리프 이탤릭 대비 + 모노 라벨 · Accent: 번트오렌지 · Kitsch: 왁스실 스탬프 뱃지 한 개</div>
+      </div>
+      <div class="swatches">
+        <div class="sw" style="background:#faf6ef"><span>#FAF6EF</span></div>
+        <div class="sw" style="background:#191714"><span>#191714</span></div>
+        <div class="sw" style="background:#d2552e"><span>#D2552E</span></div>
+        <div class="sw" style="background:#f4dd6e"><span>#F4DD6E</span></div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="phone">
+        <div class="screen" style="position:relative;background:#faf6ef;color:#191714">
+          <div class="pad" style="position:relative;z-index:1">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.14em;color:#8a8276;border-bottom:1px solid #191714;padding-bottom:8px">
+              <span>BF.D — ISSUE 03</span><span style="color:#d2552e">D-7</span>
+            </div>
+            <!-- spotlight hero -->
+            <div style="position:relative;margin-top:22px">
+              <div style="position:absolute;left:8%;top:-6px;width:0;height:0;border-left:48px solid transparent;border-right:48px solid transparent;border-top:150px solid #f4dd6e;opacity:.55;transform:rotate(8deg);z-index:0"></div>
+              <h1 style="position:relative;z-index:1;font-family:Georgia,'Times New Roman',serif;font-size:33px;line-height:1.12;letter-spacing:-.01em">한 번 쓰고<br><span style="font-style:italic;font-weight:400">버려지는</span> 게 아니라,<br><span style="color:#d2552e;font-style:italic">살아 움직이는</span><br>제품을.</h1>
+            </div>
+            <p style="font-size:13px;color:#5b554c;margin-top:16px;line-height:1.75">디자이너들이 모여 4주 동안 실제로 굴러가는 제품을 만들고 배포까지 해보는 챌린지예요.</p>
+
+            <!-- stamp + intro -->
+            <div style="display:flex;align-items:center;gap:14px;margin-top:18px">
+              <svg width="74" height="74" viewBox="0 0 100 100" style="flex-shrink:0">
+                <path id="c2c" d="M50 50 m-34 0 a34 34 0 1 1 68 0 a34 34 0 1 1 -68 0" fill="none"/>
+                <g fill="none" stroke="#d2552e" stroke-width="2">
+                  <path d="M50 6 C70 6 94 30 94 50 C94 70 70 94 50 94 C30 94 6 70 6 50 C6 30 30 6 50 6Z" stroke-dasharray="2 4"/>
+                </g>
+                <text font-family="Georgia,serif" font-style="italic" font-size="13" fill="#191714" text-anchor="middle">
+                  <textPath href="#c2c" startOffset="0%">· JOY · &amp; · SWEAT · 4 WEEKS ·&#160;&#160;&#160;</textPath>
+                </text>
+                <text x="50" y="56" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="22" fill="#d2552e" font-style="italic">3rd</text>
+              </svg>
+              <div style="font-size:12px;color:#6b6457;line-height:1.6">혼자였다면 미뤘을 일을,<br>같은 목표의 동료들과<br><b style="color:#191714">끝까지</b> 완성해봐요.</div>
+            </div>
+
+            <!-- stats editorial -->
+            <div style="margin-top:22px;border-top:1px solid #191714;border-bottom:1px solid #191714">
+              <div style="display:grid;grid-template-columns:1fr 1fr">
+                <div style="padding:14px 6px;border-right:1px solid #ddd5c7"><div style="font-family:Georgia,serif;font-size:26px">100<span style="font-size:15px">%</span></div><div style="font-size:10px;color:#8a8276;font-family:ui-monospace,monospace;letter-spacing:.05em">COMPLETION</div></div>
+                <div style="padding:14px 6px"><div style="font-family:Georgia,serif;font-size:26px">4<span style="font-size:15px">주</span></div><div style="font-size:10px;color:#8a8276;font-family:ui-monospace,monospace;letter-spacing:.05em">DURATION</div></div>
+              </div>
+            </div>
+
+            <!-- team -->
+            <div style="margin-top:20px">
+              <div style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.1em;color:#d2552e">TEAM ONE</div>
+              <h3 style="font-family:Georgia,serif;font-size:20px;font-style:italic;margin-top:2px">AI Builder</h3>
+              <p style="font-size:12.5px;color:#5b554c;margin-top:5px;line-height:1.65">내가 풀고 싶던 문제로 실제 사용자가 쓰는 서비스를 0부터 만들어 배포해요.</p>
+            </div>
+
+            <!-- form -->
+            <div style="margin-top:22px">
+              <span class="label" style="font-family:ui-monospace,monospace;letter-spacing:.05em;font-weight:600">지원한 이야기 <span style="color:#d2552e">*</span></span>
+              <textarea class="field" rows="3" style="border:none;border-bottom:1.5px solid #191714;border-radius:0;background:transparent;padding-left:0" placeholder="떠오르는 대로 편하게요…"></textarea>
+            </div>
+            <button class="btn" style="background:#191714;color:#faf6ef;margin-top:18px;border-radius:0;font-family:ui-monospace,monospace;letter-spacing:.08em">지원하기 — APPLY</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">↕ 폰 화면을 스크롤해 보세요</div>
+  </section>
+
+  <!-- ════════ CONCEPT 3 — POSTER PUNK ════════ -->
+  <section class="concept">
+    <div class="concept-head">
+      <div class="cnum">3</div>
+      <div class="cmeta">
+        <h2>포스터 펑크 — Poster Punk</h2>
+        <div class="tagline">하늘색 단색 필드 + 먹색 브러시 레터링. 공연 포스터 같은 에너지, 가장 과감한 키치.</div>
+        <div class="spec">Type: 초대형 콘덴스드 + 손글씨 브러시 · Mood: 리소 포스터 · 위계로 가독성 사수</div>
+      </div>
+      <div class="swatches">
+        <div class="sw" style="background:#a9cfe3"><span>#A9CFE3</span></div>
+        <div class="sw" style="background:#141414"><span>#141414</span></div>
+        <div class="sw" style="background:#f4ede0"><span>#F4EDE0</span></div>
+        <div class="sw" style="background:#e23b2e"><span>#E23B2E</span></div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="phone">
+        <div class="screen grain" style="position:relative;background:#a9cfe3;color:#141414">
+          <div class="pad" style="position:relative;z-index:1">
+            <div style="display:flex;justify-content:space-between;font-family:ui-monospace,monospace;font-weight:700;font-size:10.5px;letter-spacing:.05em">
+              <span>BF.D 3기 / 모집중</span><span>D-7 마감</span>
+            </div>
+            <!-- big poster headline -->
+            <h1 style="font-size:46px;font-weight:900;line-height:.92;letter-spacing:-.03em;margin-top:18px;text-transform:none">진짜<br>제품을<br>만든다</h1>
+            <!-- brushy line illo -->
+            <svg viewBox="0 0 300 120" width="100%" height="118" style="margin:6px 0" fill="#141414">
+              <g stroke="#141414" stroke-width="5" stroke-linecap="round" fill="none">
+                <circle cx="60" cy="34" r="13" fill="#141414"/>
+                <path d="M60 47 q-4 22 2 34 M60 54 q-22 -6 -34 4 M60 54 q24 -2 34 12 M62 81 q-10 14 -22 22 M62 81 q12 12 16 26"/>
+                <circle cx="170" cy="26" r="13" fill="#141414"/>
+                <path d="M170 39 q6 22 -2 36 M170 46 q22 0 34 -8 M170 46 q-22 4 -32 16 M168 75 q14 12 18 28 M168 75 q-12 12 -24 18"/>
+                <circle cx="258" cy="40" r="13" fill="#141414"/>
+                <path d="M258 53 q-2 20 4 32 M258 60 q-22 -4 -30 8 M258 60 q20 2 28 -10 M262 85 q-8 14 -18 22"/>
+              </g>
+            </svg>
+            <p style="background:#141414;color:#a9cfe3;font-weight:700;font-size:13px;padding:10px 12px;line-height:1.6">디자이너들이 4주간 실제로 굴러가는 제품을 만들고 배포까지 — 같이.</p>
+
+            <!-- stats inline poster -->
+            <div style="margin-top:20px;font-weight:900;line-height:1.15">
+              <div style="display:flex;justify-content:space-between;border-bottom:3px solid #141414;padding:6px 0"><span style="font-size:13px;align-self:flex-end">완주율</span><span style="font-size:26px">100%</span></div>
+              <div style="display:flex;justify-content:space-between;border-bottom:3px solid #141414;padding:6px 0"><span style="font-size:13px;align-self:flex-end">기간</span><span style="font-size:26px">4주</span></div>
+              <div style="display:flex;justify-content:space-between;border-bottom:3px solid #141414;padding:6px 0"><span style="font-size:13px;align-self:flex-end">팀</span><span style="font-size:26px">3팀</span></div>
+            </div>
+
+            <!-- team -->
+            <div style="margin-top:20px;background:#f4ede0;border:3px solid #141414;padding:14px">
+              <div style="font-weight:900;font-size:17px">🚀 AI BUILDER</div>
+              <p style="font-size:12.5px;margin-top:5px;line-height:1.6">내가 풀고 싶던 문제로 실제 사용자가 쓰는 서비스를 0부터 만들어 배포해요.</p>
+            </div>
+
+            <!-- form -->
+            <div style="margin-top:22px">
+              <span class="label" style="font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.03em">지원한 이야기 *</span>
+              <textarea class="field" rows="3" style="border:3px solid #141414;background:#f4ede0;resize:none;border-radius:0" placeholder="편하게 적어주세요…"></textarea>
+            </div>
+            <button class="btn" style="background:#e23b2e;color:#fff;margin-top:16px;border-radius:0;border:3px solid #141414;font-weight:900;font-size:16px;letter-spacing:.02em">지원하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">↕ 폰 화면을 스크롤해 보세요</div>
+  </section>
+
+  <!-- ════════ CONCEPT 4 — SKETCHBOOK NOTES ════════ -->
+  <section class="concept">
+    <div class="concept-head">
+      <div class="cnum">4</div>
+      <div class="cmeta">
+        <h2>스케치북 노트 — Sketchbook</h2>
+        <div class="tagline">디자이너 노트 같은 친근함. 손글씨 느낌·동그라미·화살표, 블러시 포인트로 가장 다정한 무드.</div>
+        <div class="spec">Type: 둥근 산세리프 + 손그림 밑줄/동그라미 · Accent: 잉크블루 + 블러시코랄</div>
+      </div>
+      <div class="swatches">
+        <div class="sw" style="background:#fbf7f0"><span>#FBF7F0</span></div>
+        <div class="sw" style="background:#2c3e7e"><span>#2C3E7E</span></div>
+        <div class="sw" style="background:#f3a59a"><span>#F3A59A</span></div>
+        <div class="sw" style="background:#2c2a26"><span>#2C2A26</span></div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="phone">
+        <div class="screen" style="position:relative;background:#fbf7f0;color:#2c2a26;
+          background-image:radial-gradient(#e7e0d2 1px,transparent 1px);background-size:22px 22px">
+          <div class="pad" style="position:relative;z-index:1">
+            <div style="display:inline-block;background:#f3a59a;color:#2c2a26;font-weight:700;font-size:11px;padding:5px 12px;border-radius:999px;transform:rotate(-2deg)">BF.D 3기 · D-7 마감 ✿</div>
+
+            <h1 style="font-size:26px;font-weight:800;line-height:1.32;margin-top:18px;letter-spacing:-.01em">한 번 쓰고 끝나는 결과물 말고,<br><span style="position:relative;color:#2c3e7e">사이클이 도는 진짜 제품
+              <svg viewBox="0 0 220 14" width="100%" height="10" style="position:absolute;left:0;bottom:-7px" preserveAspectRatio="none"><path d="M2 8 Q60 2 110 7 T218 5" fill="none" stroke="#f3a59a" stroke-width="4" stroke-linecap="round"/></svg>
+            </span>을 만들어요.</h1>
+            <p style="font-size:13px;color:#615c52;margin-top:16px;line-height:1.75">AI로 뭔가 만들어보긴 했는데, 한 번 쓰고 묻혀버린 적 있지 않나요? 이번엔 동료들과 끝까지 완성해봐요 :)</p>
+
+            <!-- doodle circle of friends -->
+            <svg viewBox="0 0 260 90" width="100%" height="84" style="margin-top:14px;color:#2c3e7e" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="40" cy="40" r="7"/><path d="M40 47 v16 M40 51 l-12 8 M40 51 l14 6 M40 63 l-9 14 M40 63 l9 14"/>
+              <circle cx="100" cy="30" r="7"/><path d="M100 37 v16 M100 41 l-13 5 M100 41 l13 5 M100 53 l-9 14 M100 53 l9 14"/>
+              <circle cx="162" cy="34" r="7"/><path d="M162 41 v16 M162 45 l-13 4 M162 45 l13 6 M162 57 l-9 14 M162 57 l9 14"/>
+              <circle cx="222" cy="42" r="7"/><path d="M222 49 v16 M222 53 l-13 6 M222 53 l13 4 M222 65 l-9 12 M222 65 l9 12"/>
+              <path d="M54 50 q16 -8 33 -10 M114 41 q18 0 34 0 M176 45 q18 0 33 0" stroke="#f3a59a"/>
+              <path d="M20 18 l3 6 M18 22 l8 -2 M244 20 l2 6 M240 24 l8 -2" stroke="#f3a59a"/>
+            </svg>
+
+            <!-- stats sticky-note -->
+            <div class="stat-grid" style="margin-top:14px">
+              <div class="stat" style="background:#fff;border:2px solid #2c2a26;border-radius:14px;transform:rotate(-1deg)"><div class="n" style="color:#2c3e7e">100%</div><div class="l" style="color:#615c52">완주율</div></div>
+              <div class="stat" style="background:#fff;border:2px solid #2c2a26;border-radius:14px;transform:rotate(1deg)"><div class="n" style="color:#2c3e7e">4주</div><div class="l" style="color:#615c52">기간</div></div>
+            </div>
+
+            <!-- team -->
+            <div style="margin-top:18px;background:#fff;border:2px solid #2c2a26;border-radius:16px;padding:15px">
+              <div style="font-size:15px;font-weight:800">🚀 AI Builder <span style="font-size:11px;color:#f3a59a;font-weight:700">← 이런 분!</span></div>
+              <p style="font-size:12.5px;color:#615c52;margin-top:5px;line-height:1.6">풀고 싶던 문제로 실제 사용자가 쓰는 서비스를 0부터 만들어 배포해요.</p>
+            </div>
+
+            <!-- form -->
+            <div style="margin-top:20px">
+              <span class="label">지원한 이야기를 들려주세요 <span style="color:#f3a59a">*</span></span>
+              <textarea class="field" rows="3" style="border:2px solid #2c2a26;background:#fff;resize:none;border-radius:14px" placeholder="잘 쓰려 하지 않아도 돼요 :)"></textarea>
+            </div>
+            <button class="btn" style="background:#2c3e7e;color:#fff;margin-top:16px;border-radius:999px">지원하기 ✿</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">↕ 폰 화면을 스크롤해 보세요</div>
+  </section>
+
+  <!-- ════════ CONCEPT 5 — QUIET COBALT ════════ -->
+  <section class="concept">
+    <div class="concept-head">
+      <div class="cnum">5</div>
+      <div class="cmeta">
+        <h2>콰이엇 코발트 — Quiet Cobalt</h2>
+        <div class="tagline">미니멀·여백·신뢰감 최우선. 손그림 키치는 단 한 방울, 작은 시그니처로만.</div>
+        <div class="spec">Type: 깔끔한 그로테스크 · 화이트 베이스 + 단일 코발트 · 내용이 절대 안 밀리는 안전한 고급안</div>
+      </div>
+      <div class="swatches">
+        <div class="sw" style="background:#ffffff"><span>#FFFFFF</span></div>
+        <div class="sw" style="background:#f5f3ee"><span>#F5F3EE</span></div>
+        <div class="sw" style="background:#1d35d6"><span>#1D35D6</span></div>
+        <div class="sw" style="background:#16161a"><span>#16161A</span></div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="phone">
+        <div class="screen" style="position:relative;background:#ffffff;color:#16161a">
+          <div class="pad" style="position:relative;z-index:1">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="font-size:11px;font-weight:700;letter-spacing:-.01em;color:#1d35d6">BF.D 3기</span>
+              <span style="font-size:11px;color:#8a8a8a">D-7 마감</span>
+            </div>
+
+            <!-- tiny signature illo -->
+            <svg viewBox="0 0 60 50" width="46" height="38" style="margin-top:30px;color:#1d35d6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="30" cy="12" r="6"/><path d="M30 18 v15 M30 22 l-13 7 M30 22 l13 7 M30 33 l-10 14 M30 33 l10 14"/>
+              <path d="M30 4 l1 -3 M22 7 l-3 -2 M38 7 l3 -2" stroke-width="2"/>
+            </svg>
+
+            <h1 style="font-size:29px;font-weight:800;letter-spacing:-.025em;line-height:1.3;margin-top:14px">한 번 쓰고 끝나는<br>결과물 말고,<br><span style="color:#1d35d6">사이클이 도는 진짜 제품</span>을<br>만들어요.</h1>
+            <p style="font-size:13.5px;color:#5a5a5e;margin-top:16px;line-height:1.75">디자이너들이 모여 4주 동안 실제로 굴러가는 제품을 만들고 배포까지 해보는 챌린지예요.</p>
+
+            <!-- stats minimal -->
+            <div style="display:flex;margin-top:26px;border-top:1px solid #e9e7e2;border-bottom:1px solid #e9e7e2">
+              <div style="flex:1;padding:16px 4px;border-right:1px solid #e9e7e2"><div style="font-size:22px;font-weight:800">100%</div><div style="font-size:10.5px;color:#9a9a9a;margin-top:2px">완주율</div></div>
+              <div style="flex:1;padding:16px 4px;border-right:1px solid #e9e7e2"><div style="font-size:22px;font-weight:800">4주</div><div style="font-size:10.5px;color:#9a9a9a;margin-top:2px">기간</div></div>
+              <div style="flex:1;padding:16px 4px"><div style="font-size:22px;font-weight:800;color:#1d35d6">3팀</div><div style="font-size:10.5px;color:#9a9a9a;margin-top:2px">구성</div></div>
+            </div>
+
+            <!-- team -->
+            <div style="margin-top:22px;border:1px solid #e4e2dc;border-radius:14px;padding:16px">
+              <div style="display:flex;align-items:center;gap:8px"><span style="width:7px;height:7px;border-radius:50%;background:#1d35d6"></span><h3 style="font-size:15px;font-weight:700">AI Builder</h3></div>
+              <p style="font-size:12.5px;color:#5a5a5e;margin-top:7px;line-height:1.65">내가 풀고 싶던 문제로 실제 사용자가 쓰는 서비스를 0부터 만들어 배포하고 운영해요.</p>
+            </div>
+
+            <!-- form -->
+            <div style="margin-top:24px">
+              <span class="label" style="color:#3a3a3e">베프디에 지원한 이야기 <span style="color:#1d35d6">*</span></span>
+              <textarea class="field" rows="3" style="border:1px solid #d8d6d0;background:#fafafa;resize:none;border-radius:12px" placeholder="떠오르는 대로 편하게요…"></textarea>
+            </div>
+            <button class="btn" style="background:#1d35d6;color:#fff;margin-top:18px;border-radius:12px">지원하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">↕ 폰 화면을 스크롤해 보세요</div>
+  </section>
+
+</div>
