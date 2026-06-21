@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2기 vs 3기 지원서 비교</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: #0a0a0a; font-family: -apple-system, system-ui, sans-serif; }
+  .bar { display: flex; height: 44px; align-items: center; gap: 8px; padding: 0 14px;
+         background: #18181b; border-bottom: 1px solid #27272a; color: #e4e4e7; font-size: 13px; }
+  .bar b { color: #a78bfa; }
+  .bar .hint { margin-left: auto; color: #71717a; font-size: 12px; }
+  .wrap { display: flex; height: calc(100% - 44px); }
+  .col { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .col + .col { border-left: 2px solid #3f3f46; }
+  .label { height: 32px; display: flex; align-items: center; justify-content: center;
+           font-size: 12px; font-weight: 600; letter-spacing: .03em; }
+  .label.two { background: #27272a; color: #d4d4d8; }
+  .label.three { background: #3b0764; color: #e9d5ff; }
+  iframe { flex: 1; width: 100%; border: 0; background: #fff; }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <b>베프디 지원서</b> 2기 ↔ 3기 비교
+    <span class="hint">⌘R 새로고침하면 최신 반영 · 각 칸 따로 스크롤됨</span>
+  </div>
+  <div class="wrap">
+    <div class="col">
+      <div class="label two">2기 실제 폼 (배포본 · vercel /apply/season2)</div>
+      <iframe src="https://bf-d-admin.vercel.app/apply/season2"></iframe>
+    </div>
+    <div class="col">
+      <div class="label three">시즌 3 합본 (apply-v5.html · 2기 골격+3기 신규)</div>
+      <iframe src="apply-v5.html"></iframe>
+    </div>
+  </div>
+</body>
+</html>

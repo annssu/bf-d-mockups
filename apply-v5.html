@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BF.D 챌린지 시즌 3 지원하기</title>
+  <meta property="og:title" content="BF.D 챌린지 시즌 3 — 지원하기" />
+  <meta property="og:description" content="디자이너가 AI와 함께 4주 만에 '사이클이 도는 제품'을 만들어 배포하는 챌린지. 시즌 3 모집 중." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <script>
+    tailwind.config = { theme: { extend: {
+      fontFamily: { sans: ['Pretendard','-apple-system','sans-serif'] },
+      colors: { violet: { 600:'#7c3aed', 500:'#8b5cf6', 400:'#a78bfa', 300:'#c4b5fd' } }
+    } } }
+  </script>
+  <style>
+    /* word-break:keep-all → 한국어가 어절 중간에서 안 잘리고 단어 단위로 줄바꿈돼요 */
+    body { background:#09090b; word-break: keep-all; }
+    ::selection { background:#7c3aed; color:#fff; }
+    .ph { background: rgba(251,191,36,.12); border:1px dashed rgba(251,191,36,.5); border-radius:6px; padding:1px 6px; color:#fcd34d; font-size:.85em; }
+
+    /* ── 기수 '파일' 카드 ── */
+    .gen-file { position: relative; }
+    .gen-file::before {  /* 파일 폴더 탭 */
+      content:""; position:absolute; top:-7px; left:16px; width:38px; height:9px;
+      background:inherit; border:1px solid; border-color:inherit; border-bottom:none;
+      border-radius:5px 5px 0 0;
+    }
+    .gen-file .gen-ico { transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
+    .gen-file:hover .gen-ico { transform: translateY(-2px) rotate(-6deg); }
+
+    /* ── 플로팅 모달 (작은 콘텐츠 카드) ── */
+    .gen-modal-root { position:fixed; inset:0; z-index:100; display:none; align-items:center; justify-content:center; padding:20px; }
+    .gen-modal-root.show { display:flex; }
+    .gen-backdrop { position:absolute; inset:0; background:rgba(9,9,11,.55); backdrop-filter:blur(3px); opacity:0; transition:opacity .26s ease; }
+    .gen-modal-root.anim .gen-backdrop { opacity:1; }
+    .gen-card {
+      position:relative; width:min(720px,100%); max-height:82vh; overflow-y:auto;
+      background:#161618; border:1px solid #2a2a30; border-radius:18px;
+      box-shadow:0 24px 70px -10px rgba(0,0,0,.7);
+      opacity:0; transform:translateY(14px) scale(.9); transform-origin:center;
+      transition: opacity .26s ease, transform .42s cubic-bezier(.34,1.56,.64,1);
+    }
+    .gen-modal-root.anim .gen-card { opacity:1; transform:none; }
+    .gen-card::-webkit-scrollbar { width:0; }
+    .gen-close {
+      position:absolute; top:12px; right:12px; z-index:2; width:30px; height:30px;
+      display:flex; align-items:center; justify-content:center; border-radius:9px;
+      background:rgba(255,255,255,.06); border:none; color:#a1a1aa; cursor:pointer; font-size:14px;
+      transition:background .15s, color .15s;
+    }
+    .gen-close:hover { background:rgba(255,255,255,.12); color:#fff; }
+
+    /* ── 커스텀 드롭다운 ── */
+    .cs-panel {
+      transform-origin: top;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity .16s ease, transform .16s ease;
+    }
+    .custom-select.open .cs-panel { opacity: 1; transform: translateY(0); }
+    .custom-select.open .cs-trigger { border-color: #8b5cf6; }
+    .custom-select.open .cs-arrow { transform: rotate(180deg); }
+
+    /* ── 선택한 팀 세부 설명 카드 (부드럽게 등장) ── */
+    .team-detail {
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity .22s ease, transform .22s ease;
+      margin-top: .25rem;
+    }
+    .team-detail.show { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     ✏️ 직접 고치는 법 (3초 요약)
+     · 글자는  >  와  <  사이만 바꾸세요.   예) <h2 ...>여기만 고침</h2>
+     · class="..." 부분은 디자인이니 건드리지 마세요.
+     · 줄바꿈 = 원하는 자리에  <br />  넣기
+     · 굵게 = <b>굵게할글자</b>  /  보라강조 = <span class="text-violet-400">강조</span>
+     · 노란 박스(.ph)는 아직 안 채운 빈칸이에요. 실제 값으로 바꾼 뒤 class="ph"만 지우면 돼요.
+     · 이 파일은 '시안'입니다 — 폼 제출 등 실제 동작은 하지 않아요.
+     ════════════════════════════════════════════════════════════════════ -->
+
+<body class="font-sans text-zinc-100 antialiased">
+
+<main class="mx-auto max-w-2xl px-5 py-10 sm:py-14 space-y-12 sm:space-y-16">
+
+  <!-- ───────────────── 헤더 (시즌 3 강조) ───────────────── -->
+  <section class="space-y-5">
+    <div class="flex items-center gap-2.5 flex-wrap">
+      <!-- 2기 폼과 동일한 보라색 pill 배지 (모집중 · 마감 D-day) -->
+      <span class="rounded-full bg-violet-600 px-3 py-1 text-sm font-semibold text-white">모집중 · D-<span class="ph">N</span> 마감</span>
+    </div>
+
+    <!-- 큰 한글 시즌 제목 -->
+    <p class="text-[32px] sm:text-[50px] font-extrabold tracking-tighter leading-[1.05] text-zinc-100">BF.D 챌린지 <span class="text-violet-400">시즌 3</span></p>
+
+    <h1 class="text-[24px] sm:text-[32px] font-bold tracking-tight leading-[1.32]">
+      문제를 정의하고 푸는 힘을 길러,<br class="hidden sm:block" />
+      <span class="text-violet-400">지속되는 프로덕트를 만드는 바이브코더로 성장</span>해요.
+    </h1>
+
+    <p class="text-zinc-400 text-[15px] sm:text-base leading-relaxed">
+      BF.D는 디자이너가 코드 없이(혹은 최소한의 코드로) AI와 함께 실제 서비스를 만드는 챌린지예요.
+      풀고 싶은 아이디어를 구체화하고, 빌드하고, 배포까지 완료하는 경험을 4주 동안 함께하며,
+      혼자였으면 중간에 포기했을 것들을 같은 목표를 가진 동료들과 끝까지 완성해봐요.
+    </p>
+  </section>
+
+  <!-- ───────────────── 핵심 수치 ───────────────── -->
+  <section class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-4 text-center"><p class="text-xl sm:text-2xl font-bold">100%</p><p class="mt-1 text-xs text-zinc-500">1·2기 완주율</p></div>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-4 text-center"><p class="text-xl sm:text-2xl font-bold">4주</p><p class="mt-1 text-xs text-zinc-500">챌린지 기간 <span class="text-[10px] text-zinc-600">· 총 5주</span></p></div>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-4 text-center"><p class="text-xl sm:text-2xl font-bold">3개 팀</p><p class="mt-1 text-xs text-zinc-500">목표별 구성</p></div>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-4 text-center"><p class="text-xl sm:text-2xl font-bold">매일 1+</p><p class="mt-1 text-xs text-zinc-500">툴·리소스·스킬</p></div>
+  </section>
+
+  <!-- ───────────────── 이런 분이 맞아요 (자가 점검 · 페인포인트) ───────────────── -->
+  <section class="space-y-3">
+    <div>
+      <h2 class="text-lg font-semibold text-zinc-100">이런 분이시라면?</h2>
+      <p class="text-sm text-zinc-500 mt-1">하나라도 끄덕였다면, 베프디 3기가 딱 맞아요.</p>
+    </div>
+    <ul class="space-y-2.5 text-sm text-zinc-300 leading-relaxed">
+      <li class="flex gap-2.5"><span class="text-violet-400 shrink-0">✓</span><span>"AI로 뭔가 만들어봐야지" 하고 <b class="text-zinc-100">몇 달째 미루고만</b> 있다.</span></li>
+      <li class="flex gap-2.5"><span class="text-violet-400 shrink-0">✓</span><span>만들긴 했는데 <b class="text-zinc-100">한 번 쓰고 버려지는</b> 일회성 결과물에서 벗어나고 싶다.</span></li>
+      <li class="flex gap-2.5"><span class="text-violet-400 shrink-0">✓</span><span>혼자 하면 자꾸 늘어져서, <b class="text-zinc-100">같이 끝까지 갈 동료</b>가 필요하다.</span></li>
+      <li class="flex gap-2.5"><span class="text-violet-400 shrink-0">✓</span><span>다들 AI로 만든다는데 <b class="text-zinc-100">나만 뒤처지는 것 같아</b> 조급하다.</span></li>
+      <li class="flex gap-2.5"><span class="text-violet-400 shrink-0">✓</span><span>7/5 킥오프와 8/2 쇼케이스, <b class="text-zinc-100">오프라인 참여가 가능</b>하다.</span></li>
+    </ul>
+  </section>
+
+  <!-- ───────────────── 챌린지 컨셉 진화 (1 → 2 → 3기) ───────────────── -->
+  <section class="space-y-4">
+    <div>
+      <h2 class="text-lg font-semibold text-zinc-100">베프디는 이렇게 진화해왔어요</h2>
+      <p class="text-sm text-zinc-500 mt-1">📂 카드를 누르면 그 기수의 이야기가 열려요.</p>
+    </div>
+
+    <div class="grid grid-cols-3 gap-2.5 sm:gap-3">
+      <!-- 1기 -->
+      <button type="button" data-gen="1" class="gen-file group rounded-xl border border-zinc-800 bg-zinc-900/50 p-3.5 sm:p-4 text-left flex flex-col gap-1.5 hover:border-zinc-600 hover:-translate-y-0.5 transition cursor-pointer">
+        <span class="gen-ico text-xl">🗂️</span>
+        <span class="font-bold text-zinc-300 text-sm">1기</span>
+        <span class="text-[11.5px] sm:text-[12px] text-zinc-500 leading-snug">두려움을 깨고 일단 만들어봤어요</span>
+        <span class="mt-1.5 text-[11px] text-zinc-600 group-hover:text-violet-400 transition">열어보기 →</span>
+      </button>
+      <!-- 2기 -->
+      <button type="button" data-gen="2" class="gen-file group rounded-xl border border-zinc-800 bg-zinc-900/50 p-3.5 sm:p-4 text-left flex flex-col gap-1.5 hover:border-zinc-600 hover:-translate-y-0.5 transition cursor-pointer">
+        <span class="gen-ico text-xl">🗂️</span>
+        <span class="font-bold text-zinc-300 text-sm">2기</span>
+        <span class="text-[11.5px] sm:text-[12px] text-zinc-500 leading-snug">도구를 내 것으로 길들였어요</span>
+        <span class="mt-1.5 text-[11px] text-zinc-600 group-hover:text-violet-400 transition">열어보기 →</span>
+      </button>
+      <!-- 3기 (이번 · 강조) -->
+      <button type="button" data-gen="3" class="gen-file group rounded-xl border border-violet-500/50 bg-violet-500/[0.08] p-3.5 sm:p-4 text-left flex flex-col gap-1.5 hover:border-violet-400 hover:-translate-y-0.5 transition cursor-pointer">
+        <span class="gen-ico text-xl">📂</span>
+        <span class="font-bold text-violet-300 text-sm">3기 <span class="text-[9px] align-top">NOW</span></span>
+        <span class="text-[11.5px] sm:text-[12px] text-violet-200/80 leading-snug">계속 쓰이는 진짜 제품으로</span>
+        <span class="mt-1.5 text-[11px] text-violet-400/70 group-hover:text-violet-300 transition">열어보기 →</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ───────────────── ⭐ 팀 선택 가이드 (마케팅 후킹 + 운영진 선정) ───────────────── -->
+  <section class="space-y-4">
+    <div>
+      <h2 class="text-lg font-semibold text-zinc-100">어떤 팀이 있나요?</h2>
+      <p class="text-sm text-zinc-500 mt-1">팀마다 만드는 결과물의 성격이 달라요. 가볍게 훑어보고, 지원 폼에서 팀을 고를 때 세부 설명을 다시 확인할 수 있어요.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+
+      <!-- 팀 1: AI Builder -->
+      <div class="rounded-xl border border-violet-500/40 bg-violet-500/[0.06] p-4 flex flex-col gap-2.5">
+        <div>
+          <h3 class="font-bold text-zinc-100 text-[15px] leading-tight">🚀 AI Builder</h3>
+          <p class="text-[11px] text-violet-300 mt-0.5">A부터 Z까지 — 나만의 서비스</p>
+        </div>
+        <p class="text-[13px] text-zinc-300 leading-relaxed">내가 풀고 싶던 문제로 <b>실제 사용자가 쓰는 서비스</b>를 0부터 만들어 배포하고 운영해요.</p>
+      </div>
+
+      <!-- 팀 2: AI Product Ops -->
+      <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 flex flex-col gap-2.5">
+        <div>
+          <h3 class="font-bold text-zinc-100 text-[15px] leading-tight">⚙️ AI Product Ops</h3>
+          <p class="text-[11px] text-zinc-400 mt-0.5">반복작업을 시스템으로</p>
+        </div>
+        <p class="text-[13px] text-zinc-300 leading-relaxed">매일 반복하는 협업·관리·잡무를 <b>AI·자동화</b>로 없애는 실전 프로젝트를 만들어요.</p>
+      </div>
+
+      <!-- 팀 3: AI Designer -->
+      <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 flex flex-col gap-2.5">
+        <div>
+          <h3 class="font-bold text-zinc-100 text-[15px] leading-tight">🎨 AI Designer</h3>
+          <p class="text-[11px] text-zinc-400 mt-0.5">비주얼 / 플랫폼 / 인터랙션</p>
+        </div>
+        <p class="text-[13px] text-zinc-300 leading-relaxed"><b>인터랙션·비주얼이 살아있는 결과물</b>을 끝단까지 코드로 빌드해요.</p>
+      </div>
+
+    </div>
+
+    <!-- 운영진 선정 강조 (페인포인트: 함께할 분을 선정) -->
+    <div class="rounded-xl border border-amber-500/30 bg-amber-500/[0.07] px-4 py-3 flex items-start gap-2">
+      <span class="text-amber-300">✨</span>
+      <p class="text-sm text-amber-100/90 leading-relaxed">
+        <b>팀별 정원이 있어요.</b> 모더레이터가 각자 잘 활동하실 수 있는 팀에 맞게 배정해 드릴 예정이에요.
+      </p>
+    </div>
+  </section>
+
+  <!-- ───────────────── 일정 (달력 스케줄러 · 2기 폼 캘린더 형태) ───────────────── -->
+  <section class="space-y-4">
+    <h2 class="text-lg font-semibold text-zinc-100">일정</h2>
+
+    <!-- 주요 일정 요약 (2기 폼의 사전 일정 박스 형태) -->
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div class="flex items-baseline gap-2">
+        <span class="h-1.5 w-1.5 rounded-full bg-rose-400 shrink-0 translate-y-[-2px]"></span>
+        <div>
+          <div class="text-[11px] text-zinc-500">지원 마감</div>
+          <div class="text-sm font-semibold text-zinc-100">6/29(월) 23:59</div>
+        </div>
+      </div>
+      <div class="flex items-baseline gap-2">
+        <span class="h-1.5 w-1.5 rounded-full bg-amber-400 shrink-0 translate-y-[-2px]"></span>
+        <div>
+          <div class="text-[11px] text-zinc-500">결과 안내</div>
+          <div class="text-sm font-semibold text-zinc-100">6/30(화) 22:00</div>
+        </div>
+      </div>
+      <div class="flex items-baseline gap-2">
+        <span class="h-1.5 w-1.5 rounded-full bg-violet-400 shrink-0 translate-y-[-2px]"></span>
+        <div>
+          <div class="text-[11px] text-zinc-500">킥오프 (오프라인)</div>
+          <div class="text-sm font-semibold text-zinc-100">7/5(일) 10:00–13:00</div>
+          <div class="text-[11px] text-zinc-400 mt-0.5">데스커 베이스캠프 with nonce</div>
+        </div>
+      </div>
+      <div class="flex items-baseline gap-2">
+        <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0 translate-y-[-2px]"></span>
+        <div>
+          <div class="text-[11px] text-zinc-500">쇼케이스 (오프라인)</div>
+          <div class="text-sm font-semibold text-zinc-100">8/2(일)</div>
+          <div class="text-[11px] text-zinc-400 mt-0.5">장소·시간 추후 안내</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 달력 스케줄러 (월 달력 그리드 · 일~토, 일정일 보라 마킹) -->
+    <div id="calendar" class="space-y-3"></div>
+
+    <!-- 범례 -->
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] text-zinc-500">
+      <span class="flex items-center gap-1.5"><span class="inline-block h-2.5 w-2.5 rounded-sm bg-violet-500/30 border border-violet-500/50"></span>킥오프 / 주차 밋업</span>
+      <span class="flex items-center gap-1.5"><span class="inline-block h-2.5 w-2.5 rounded-sm bg-emerald-500/25 border border-emerald-500/50"></span>쇼케이스</span>
+    </div>
+    <p class="text-xs text-zinc-500">* 킥오프와 쇼케이스는 오프라인으로 진행돼요. 두 일정에 모두 참여 가능한지 꼭 확인해주세요. 매주 일정은 일요일이에요.</p>
+  </section>
+
+  <!-- ───────────────── STUDY RULE (보증금 + 운영 참가비) ───────────────── -->
+  <section class="space-y-3">
+    <h2 class="text-lg font-semibold text-zinc-100">STUDY RULE</h2>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/60 p-5 space-y-4 text-sm text-zinc-400">
+      <div class="rounded-lg bg-violet-500/10 border border-violet-500/30 px-4 py-3 text-zinc-100">
+        <p class="font-semibold leading-relaxed">매주 선언한 과제를 달성하면 그 주의 환급 자격(5만원)이 쌓이고, 달성하지 못하면 그만큼 차감돼요.</p>
+        <p class="text-zinc-300 leading-relaxed mt-1">참여하려면 <b>운영 참가비 3만원</b>과 <b>챌린지 보증금 20만원</b>이 필요해요. 보증금은 <b>그 주에 바로 돌려드리는 게 아니라, 챌린지가 끝난 뒤 쌓인 환급 자격만큼 한 번에 정산</b>해요.</p>
+      </div>
+      <ul class="space-y-1.5 list-disc list-inside">
+        <li>운영 참가비 3만원 — 운영·장소·진행에 쓰여요 (환급되지 않아요)</li>
+        <li>챌린지 보증금 20만원을 모임 계좌에 입금 (매주 5만원씩 환급 자격을 쌓는 구조)</li>
+        <li>매주 선언한 과제를 달성하면 → 그 주 환급 자격 5만원 적립</li>
+        <li>달성하지 못하면 → 그만큼(5만원) 차감</li>
+        <li>일부만 달성했을 땐 → 참가자 투표로 달성 여부 및 차감 금액 결정</li>
+        <li>연속 2회 불참 → 보증금 차감</li>
+        <li>중도 포기 → 잔여 보증금 회수 불가 (회식비로 사용)</li>
+        <li><b class="text-zinc-200">환급 시점</b> — 매주 바로 돌려드리지 않고, 챌린지 종료 후 그동안 쌓인 환급 자격을 합산해 일괄 환급해요</li>
+      </ul>
+      <p class="text-xs text-zinc-500 italic border-t border-zinc-800 pt-3">* 매일 깃헙 공용 레포에 커밋이 찍히는 것을 기본 강도로 하려고 해요!</p>
+    </div>
+  </section>
+
+  <!-- ───────────────── TIME RULE (매주 일요일 밋업) ───────────────── -->
+  <section class="space-y-3">
+    <h2 class="text-lg font-semibold text-zinc-100">TIME RULE</h2>
+    <p class="text-zinc-400 text-sm">매주 일요일, 반드시 해야 할 일이 두 가지 있어요.</p>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/60 overflow-hidden">
+      <div class="grid grid-cols-[auto_1fr] divide-y divide-zinc-800">
+        <div class="px-4 py-3 border-r border-zinc-800 flex items-center gap-2 text-zinc-100 font-medium whitespace-nowrap"><span>🗓</span><span class="text-sm">일요일 밋업</span></div>
+        <div class="px-4 py-3 text-sm text-zinc-300">지난 주 달성 확인 + 이번 주 진행 공유</div>
+        <div class="px-4 py-3 border-r border-zinc-800 flex items-center gap-2 text-zinc-100 font-medium whitespace-nowrap"><span>📢</span><span class="text-sm">일요일 자정까지 선언</span></div>
+        <div class="px-4 py-3 text-sm text-zinc-300">이번 주 내가 할 것을 채널에 공유</div>
+      </div>
+    </div>
+    <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 space-y-1.5">
+      <p class="text-zinc-100 font-medium">평소엔 Discord로 비동기 소통</p>
+      <p class="text-sm text-zinc-400 leading-relaxed">막힌 부분이 있을 때, 공유하고 싶을 때, 응원이 필요할 때 언제든 이야기를 나눠요.</p>
+    </div>
+  </section>
+
+  <!-- ───────────────── 지원 폼 ───────────────── -->
+  <section id="apply-form" class="space-y-6">
+    <div class="border-t border-zinc-800 pt-10">
+      <h2 class="text-xl font-bold text-zinc-100">시즌 3 지원하기</h2>
+      <p class="mt-1 text-sm text-zinc-500">* 표시는 필수 항목입니다. 지원해주시면 운영진이 검토 후 선정해 안내드려요.</p>
+    </div>
+
+    <!-- 시안: action/onsubmit 등 핸들러 없음 — 제출은 동작하지 않아요 -->
+    <form id="applyForm" class="space-y-5">
+      <!-- 이름 (2기 유지) -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-sm font-medium text-zinc-300">이름 <span class="text-violet-400">*</span></label>
+        <input class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="홍길동" />
+      </div>
+
+      <!-- 전화번호 (2기 유지) -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-sm font-medium text-zinc-300">전화번호 <span class="text-violet-400">*</span></label>
+        <input type="tel" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="010-0000-0000" />
+      </div>
+
+      <!-- 이메일 (2기 유지 · Gmail 안내) -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-sm font-medium text-zinc-300">이메일 <span class="text-violet-400">*</span></label>
+        <p class="text-xs text-zinc-500 -mt-0.5">구글 캘린더 밋업 초대를 받을 Gmail 주소로 적어주세요.</p>
+        <input type="email" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="you@gmail.com" />
+      </div>
+
+      <!-- 직무 (2기 유지 · 필수) -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-sm font-medium text-zinc-300">직무 <span class="text-violet-400">*</span></label>
+        <input class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="예) Product Designer" />
+      </div>
+
+      <!-- 연차 (2기 유지 · 선택) -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-sm font-medium text-zinc-300">연차</label>
+        <input class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="예) 3년차" />
+      </div>
+
+      <!-- GitHub 아이디 (3기 필수 격상) -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-sm font-medium text-zinc-300">GitHub 아이디 <span class="text-violet-400">*</span></label>
+        <p class="text-xs text-zinc-500 -mt-0.5">아직 없다면 <a href="https://github.com/signup" target="_blank" class="text-violet-400 underline">github.com/signup</a> 에서 1분이면 만들 수 있어요. 챌린지 내내 공용 레포에 매일 커밋하게 돼요.</p>
+        <input class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="github-username" />
+      </div>
+
+      <!-- AI 사용 빈도 (3기 신규 · 5단계 라디오) -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-sm font-medium text-zinc-300">평소 AI를 얼마나 쓰세요? <span class="text-violet-400">*</span></label>
+        <p class="text-xs text-zinc-500 -mt-0.5">정답은 없어요. 솔직하게 골라주시면 팀 구성과 난이도 조절에 참고해요.</p>
+        <!-- 커스텀 드롭다운 (네이티브 select 대체) -->
+        <div class="custom-select relative" data-name="ai_level">
+          <button type="button" class="cs-trigger w-full flex items-center justify-between gap-2 rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm outline-none transition focus:border-violet-500">
+            <span class="cs-label text-zinc-500">선택해주세요</span>
+            <span class="cs-arrow text-zinc-500 text-xs leading-none transition-transform duration-200">▾</span>
+          </button>
+          <input type="hidden" class="cs-value" name="ai_level" value="" />
+          <ul class="cs-panel hidden absolute left-0 right-0 top-full mt-1.5 z-50 rounded-xl border border-zinc-700 bg-zinc-900 shadow-xl overflow-hidden">
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer">거의 안 써요 — AI가 아직 막연하고 두려워요.</li>
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer">가끔 써요 — ChatGPT로 질문하거나 글 정리하는 정도예요.</li>
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer">매일 써요 — 업무에 적극 활용하고 프롬프트도 제법 잘 써요.</li>
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer">만들어봤어요 — Cursor·Lovable·v0 등으로 뭔가 빌드해본 적 있어요.</li>
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer">배포까지 해봤어요 — AI로 직접 서비스/제품을 만들어 배포한 경험이 있어요.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 지원 팀 (3기 신규 · select 3택 + 운영진 선정) -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-sm font-medium text-zinc-300">지원하고 싶은 팀 <span class="text-violet-400">*</span></label>
+        <!-- 운영진 선정 안내 박스 (팀 가이드 섹션과 동일 디자인) -->
+        <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-3 flex items-start gap-2">
+          <span class="text-zinc-400">✨</span>
+          <p class="text-sm text-zinc-300 leading-relaxed">
+            <b class="text-zinc-100">팀별 정원이 있어요.</b> 모더레이터가 각자 잘 활동하실 수 있는 팀에 맞게 배정해 드릴 예정이에요.
+          </p>
+        </div>
+        <!-- 커스텀 드롭다운 (네이티브 select 대체) · 옵션에 팀명 + 한 줄 부제 -->
+        <div class="custom-select relative" data-name="team" data-team-select>
+          <button type="button" class="cs-trigger w-full flex items-center justify-between gap-2 rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm outline-none transition focus:border-violet-500">
+            <span class="cs-label text-zinc-500">선택해주세요</span>
+            <span class="cs-arrow text-zinc-500 text-xs leading-none transition-transform duration-200">▾</span>
+          </button>
+          <input type="hidden" class="cs-value" name="team" value="" />
+          <ul class="cs-panel hidden absolute left-0 right-0 top-full mt-1.5 z-50 rounded-xl border border-zinc-700 bg-zinc-900 shadow-xl overflow-hidden">
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer leading-snug" data-team="builder">
+              <span class="font-semibold text-zinc-100">🚀 AI Builder</span> <span class="text-[12px] text-zinc-500">— 내가 풀고 싶은 문제를 0부터 만들어 배포하고 운영해요.</span>
+            </li>
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer leading-snug" data-team="ops">
+              <span class="font-semibold text-zinc-100">⚙️ AI Product Ops</span> <span class="text-[12px] text-zinc-500">— 반복하는 협업·관리·잡무를 자동화로 없애요.</span>
+            </li>
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer leading-snug" data-team="designer">
+              <span class="font-semibold text-zinc-100">🎨 AI Designer</span> <span class="text-[12px] text-zinc-500">— 인터랙션·비주얼이 살아있는 결과물을 코드로 빌드해요.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 선택한 팀의 세부 설명 카드 (선택 전 숨김 · 선택 시 채워져 표시) -->
+        <div id="teamDetail" class="team-detail hidden rounded-xl border border-zinc-800 bg-zinc-900/40 p-4"></div>
+      </div>
+
+      <!-- 유입 경로 (3기 신규 · select) -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-sm font-medium text-zinc-300">베프디, 어떻게 알게 되셨어요? <span class="text-violet-400">*</span></label>
+        <p class="text-xs text-zinc-500 -mt-0.5">가장 가까운 걸 골라주세요. 더 좋은 챌린지를 만드는 데 참고해요.</p>
+        <!-- 커스텀 드롭다운 (네이티브 select 대체) -->
+        <div class="custom-select relative" data-name="referral">
+          <button type="button" class="cs-trigger w-full flex items-center justify-between gap-2 rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm outline-none transition focus:border-violet-500">
+            <span class="cs-label text-zinc-500">선택해주세요</span>
+            <span class="cs-arrow text-zinc-500 text-xs leading-none transition-transform duration-200">▾</span>
+          </button>
+          <input type="hidden" class="cs-value" name="referral" value="" />
+          <ul class="cs-panel hidden absolute left-0 right-0 top-full mt-1.5 z-50 rounded-xl border border-zinc-700 bg-zinc-900 shadow-xl overflow-hidden">
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer">지인·동료 추천</li>
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer">이전 기수에 참여했었어요</li>
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer">인스타그램</li>
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer">디스코드·커뮤니티</li>
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer">웨잇리스트로 신청해뒀어요</li>
+            <li class="cs-option px-4 py-2.5 text-sm text-zinc-200 hover:bg-zinc-800 cursor-pointer">기타</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 주관식 (apply-v3 원문 그대로 · 지원 계기 & 되고 싶은 메이커) -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-sm font-medium text-zinc-300">베프디에 지원하기로 마음먹은 이야기를 들려주세요 <span class="text-violet-400">*</span></label>
+        <p class="text-xs text-zinc-500 -mt-0.5 leading-relaxed">
+          잘 쓰려 하지 않아도 돼요. <b class="text-zinc-400">무엇이 당신을 베프디까지 오게 했는지(계기)</b>,
+          요즘 'AI로 이건 꼭 해보고 싶다' 싶은데 아직 못 한 게 있는지,
+          그리고 이 4주 끝에 <b class="text-zinc-400">어떤 AI 메이커가 되어 있으면 좋겠는지</b> — 떠오르는 대로 편하게요.
+        </p>
+        <div class="rounded-lg bg-violet-500/[0.08] border border-violet-500/25 px-3.5 py-2.5 text-[12.5px] text-violet-100/80 leading-relaxed flex gap-2">
+          <span class="shrink-0">💡</span>
+          <span>4주간의 챌린지 동안 모더레이터가 지원자님이 적어주신 이야기로 <b class="text-violet-200">한 분 한 분의 배경과 목표를 미리 이해</b>해서, <b class="text-violet-200">당신에게 맞는 방향으로 챙겨드릴 예정이에요.</b></span>
+        </div>
+        <textarea rows="10" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition resize-none" placeholder="예) 4년차 프로덕트 디자이너예요. 회사 보안이 너무 세서 AI 툴을 맘껏 못 써봤는데, 그래도 'AI로 직접 만드는 사람'이 되고 싶다는 마음이 계속 있었어요.&#10;&#10;이번 베프디에선 ...를 꼭 만들어보고 싶어요.&#10;&#10;4주 뒤엔 ...한 메이커가 되어 있으면 좋겠어요."></textarea>
+      </div>
+
+      <!-- 동의: 개인정보 수집·이용 (apply-v3) -->
+      <label class="flex gap-3 items-start rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-3.5 text-sm cursor-pointer hover:border-zinc-600 transition">
+        <input type="checkbox" class="mt-0.5 h-4 w-4 shrink-0 accent-violet-600" />
+        <span class="leading-relaxed">
+          <span class="font-medium text-zinc-100">개인정보 수집·이용 동의 </span><span class="text-violet-400">*</span><br />
+          <span class="text-zinc-400 text-[13px]">
+            지원 심사 및 챌린지 운영 안내를 위해 <b class="text-zinc-300">이름·전화번호·이메일</b>을 수집·이용하는 데 동의합니다. 챌린지 종료 후에는 안전하게 폐기돼요.
+          </span>
+        </span>
+      </label>
+
+      <!-- 동의: 콘텐츠·사진 활용 (apply-v3) -->
+      <label class="flex gap-3 items-start rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-3.5 text-sm cursor-pointer hover:border-zinc-600 transition">
+        <input type="checkbox" class="mt-0.5 h-4 w-4 shrink-0 accent-violet-600" />
+        <span class="leading-relaxed">
+          <span class="font-medium text-zinc-100">콘텐츠 · 사진 활용 동의 </span><span class="text-violet-400">*</span><br />
+          <span class="text-zinc-400 text-[13px]">
+            챌린지 과정에서 촬영된 <b class="text-zinc-300">사진·영상</b>과 나눈 내용(인사이트, 후기, 결과물 요약 등)이
+            BF.D의 <b class="text-zinc-300">홍보·마케팅 콘텐츠</b>(SNS, 모집 페이지, 후기 등)로 활용될 수 있음에 동의합니다.
+            초상권·저작권을 침해하는 형태로는 사용하지 않으며, 민감한 식별이 필요한 경우 별도로 동의를 구합니다.
+          </span>
+        </span>
+      </label>
+
+      <button type="button" id="submitApply" class="w-full rounded-xl bg-violet-600 hover:bg-violet-500 px-6 py-3.5 text-sm font-semibold text-white transition">지원하기</button>
+    </form>
+
+    <!-- 제출 완료 안내 (지원하기 클릭 시 표시) -->
+    <div id="applyDone" class="hidden rounded-2xl border border-violet-500/30 bg-violet-500/[0.07] px-6 py-10 text-center">
+      <div class="text-4xl mb-3">🎉</div>
+      <p class="text-lg font-bold text-zinc-100">지원이 접수됐어요!</p>
+      <p class="mt-2.5 text-sm text-zinc-400 leading-relaxed">
+        <b class="text-violet-300">6/30(화)</b>까지 지원 결과를 안내드릴게요.<br/>
+        함께하게 되면 그때 만나요 :)
+      </p>
+    </div>
+  </section>
+
+  <footer class="pt-6 text-center text-xs text-zinc-600">Best friend of designers, BF.D</footer>
+
+</main>
+
+<!-- ───────────────── 기수 '파일' 플로팅 모달 ───────────────── -->
+<div id="genModal" class="gen-modal-root" aria-hidden="true">
+  <div class="gen-backdrop" data-close></div>
+  <div class="gen-card" role="dialog" aria-modal="true" aria-labelledby="genHead">
+    <button class="gen-close" data-close aria-label="닫기">✕</button>
+    <div id="genBody" class="p-6"></div>
+  </div>
+</div>
+
+<script>
+/* 기수별 콘텐츠 — 실제 내용/사진은 ph 부분을 채워주세요 */
+const GEN = {
+  '1': {
+    label:'1기', tag:'FIRST CHAPTER', accent:'#a78bfa',
+    head:'두려움을 깨고, 일단 만들어봤어요',
+    period:'기간: <b class="text-zinc-200">3/29 ~ 4/26</b>',
+    desc:'AI 바이브코딩이 막막했던 디자이너들이 처음 모였어요. "내 손으로 뭔가를 만든다"는 첫 경험에 집중한 기수예요.',
+    points:['시작의 두려움 깨기','각자 첫 결과물 완성','완주율 100%'],
+    posts:['DYHIvz_GFOG','DYI-CQWmJfR'],
+  },
+  '2': {
+    label:'2기', tag:'SECOND CHAPTER', accent:'#a78bfa',
+    head:'도구를 내 것으로 길들였어요',
+    period:'기간: <b class="text-zinc-200">5/10 ~ 6/14</b>',
+    desc:'AI를 나와 내 일에 맞게 잘 활용하는 데 초점을 맞춘 기수. 막연한 도구가 아니라 손에 익은 무기가 됐어요.',
+    points:['업무·작업에 AI 적용','반복 활용 습관화','완주율 100%'],
+    posts:['DZzUfURGJk8','DZ1NkVoCRt1'],
+  },
+  '3': {
+    label:'3기', tag:'NOW · 모집중', accent:'#c4b5fd',
+    head:'문제를 제대로 풀어 계속 쓰이는 제품으로',
+    period:'킥오프: <b class="text-zinc-200">7/5 (일)</b> · 쇼케이스: <b class="text-zinc-200">8/2 (일)</b>',
+    desc:'한 번 쓰고 버려지는 결과물이 아니라, 풀고 싶은 문제를 제대로 정의하고 해결하는 데 집중하는 챕터예요. 그렇게 만든 제품은 계속 쓰이며 사이클이 돌기 시작해요 — 배포하고 운영까지 직접 해봐요.',
+    points:['문제를 제대로 풀어 계속 쓰이는 제품으로','4주 + 오프라인 쇼케이스','3개 팀, 운영진이 함께할 분을 선정'],
+  },
+};
+
+const root = document.getElementById('genModal');
+const body = document.getElementById('genBody');
+let closeTimer;
+
+function openGen(g){
+  const d = GEN[g]; if(!d) return;
+  clearTimeout(closeTimer);
+  body.innerHTML = `
+    <div class="flex items-center mb-4 pr-8">
+      <span class="text-[10px] font-semibold tracking-[.14em] uppercase" style="color:${d.accent}">${d.tag}</span>
+    </div>
+    <h3 id="genHead" class="text-xl font-bold text-zinc-100 leading-snug">${d.head}</h3>
+    <p class="text-xs text-zinc-500 mt-2">${d.period}</p>
+    <p class="text-[14px] text-zinc-400 leading-relaxed mt-4">${d.desc}</p>
+    <ul class="mt-4 space-y-2">
+      ${d.points.map(p=>`<li class="flex gap-2.5 items-start text-[13.5px] text-zinc-300"><span style="color:${d.accent}">✦</span><span>${p}</span></li>`).join('')}
+    </ul>
+    ${ d.posts
+      ? `<div class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          ${d.posts.map(code=>`<div class="rounded-xl overflow-hidden bg-white" style="aspect-ratio:1/1.225;"><iframe src="https://www.instagram.com/p/${code}/embed/captioned/" class="w-full" style="margin-top:-58px;" height="660" frameborder="0" scrolling="no" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe></div>`).join('')}
+        </div>`
+      : '' }`;
+  root.classList.add('show');
+  root.offsetWidth;            // reflow → 트랜지션 발동
+  root.classList.add('anim');
+  root.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}
+
+function closeGen(){
+  root.classList.remove('anim');
+  root.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  closeTimer = setTimeout(()=>root.classList.remove('show'), 420);
+}
+
+document.querySelectorAll('.gen-file').forEach(btn=>{
+  btn.addEventListener('click', ()=> openGen(btn.dataset.gen));
+});
+root.querySelectorAll('[data-close]').forEach(el=> el.addEventListener('click', closeGen));
+document.addEventListener('keydown', e=>{ if(e.key==='Escape' && root.classList.contains('anim')) closeGen(); });
+</script>
+
+<!-- ───────────────── 커스텀 드롭다운 (재사용 공통 로직) ───────────────── -->
+<script>
+(function(){
+  const selects = Array.from(document.querySelectorAll('.custom-select'));
+
+  /* ── 팀 세부 데이터 (위 "어떤 팀이 있나요?" 섹션과 동일한 텍스트) ── */
+  const TEAMS = {
+    builder: {
+      icon:'🚀', name:'AI Builder', sub:'A부터 Z까지 — 나만의 서비스',
+      makes:['아이디어 → MVP 배포', '사이드/창업 아이템 검증'],
+      forWho:'"이거 있으면 좋겠다" 싶은 분',
+    },
+    ops: {
+      icon:'⚙️', name:'AI Product Ops', sub:'반복작업을 시스템으로',
+      makes:['나만의 AI 워크플로우/봇', '잡무 줄이는 자동화'],
+      forWho:'반복 업무에 시달리는 효율 덕후',
+    },
+    designer: {
+      icon:'🎨', name:'AI Designer', sub:'비주얼 / 플랫폼 / 인터랙션',
+      makes:['포트폴리오·인터랙티브 웹', '애니메이션/플랫폼 UI'],
+      forWho:'내 작업을 제대로 보여주고 싶은 분',
+    },
+  };
+
+  const teamDetail = document.getElementById('teamDetail');
+  function renderTeamDetail(key){
+    const d = TEAMS[key];
+    if(!d || !teamDetail) return;
+    teamDetail.innerHTML = `
+      <div class="flex flex-col gap-2.5">
+        <div>
+          <h4 class="font-bold text-zinc-100 text-[15px] leading-tight">${d.icon} ${d.name}</h4>
+          <p class="text-[11px] text-violet-300 mt-0.5">${d.sub}</p>
+        </div>
+        <div class="text-[12.5px] text-zinc-400">
+          <p class="text-zinc-500 text-[10px] font-medium uppercase tracking-wide mb-1">이런 걸 만들어요</p>
+          <ul class="list-disc list-inside space-y-0.5">
+            ${d.makes.map(m=>`<li>${m}</li>`).join('')}
+          </ul>
+        </div>
+        <p class="text-[11px] text-zinc-500 pt-0.5">👉 ${d.forWho}</p>
+      </div>`;
+    teamDetail.classList.remove('hidden');
+    teamDetail.offsetWidth;          // reflow → 트랜지션 발동
+    teamDetail.classList.add('show');
+  }
+
+  function close(cs){
+    if(!cs.classList.contains('open')) return;
+    cs.classList.remove('open');
+    const panel = cs.querySelector('.cs-panel');
+    // 트랜지션이 끝난 뒤 hidden 처리 (등장 transition 유지)
+    setTimeout(()=>{ if(!cs.classList.contains('open')) panel.classList.add('hidden'); }, 160);
+  }
+  function closeAll(except){
+    selects.forEach(cs=>{ if(cs!==except) close(cs); });
+  }
+  function open(cs){
+    closeAll(cs);
+    const panel = cs.querySelector('.cs-panel');
+    panel.classList.remove('hidden');
+    cs.offsetWidth;            // reflow → 트랜지션 발동
+    cs.classList.add('open');
+  }
+
+  selects.forEach(cs=>{
+    const trigger = cs.querySelector('.cs-trigger');
+    const label   = cs.querySelector('.cs-label');
+    const valueIn = cs.querySelector('.cs-value');
+
+    trigger.addEventListener('click', e=>{
+      e.stopPropagation();
+      cs.classList.contains('open') ? close(cs) : open(cs);
+    });
+
+    const isTeam = cs.hasAttribute('data-team-select');
+
+    cs.querySelectorAll('.cs-option').forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        // 팀 드롭다운은 옵션 첫 줄(팀명)만 라벨/값으로 사용 (부제는 옵션에만 표시)
+        const text = isTeam
+          ? (opt.querySelector('span')?.textContent.trim() || opt.textContent.trim())
+          : opt.textContent.trim();
+        label.textContent = text;
+        label.classList.remove('text-zinc-500');
+        label.classList.add('text-zinc-100');
+        if(valueIn) valueIn.value = text;
+        // 선택 표시
+        cs.querySelectorAll('.cs-option').forEach(o=>o.classList.remove('text-violet-300'));
+        opt.classList.add('text-violet-300');
+        // 팀이면 세부 설명 카드 렌더
+        if(isTeam && opt.dataset.team) renderTeamDetail(opt.dataset.team);
+        close(cs);
+      });
+    });
+  });
+
+  // 바깥 클릭 → 모두 닫기
+  document.addEventListener('click', ()=> closeAll(null));
+})();
+</script>
+
+<!-- ───────────────── 일정 주차별 행(行) 렌더 (2기 폼의 주차 캘린더 형태 재현) ───────────────── -->
+<script>
+/* 3기 주차 블록 — 각 블록은 일요일 시작, 일~토 7일 한 줄.
+   offline:true → 헤더바 보라 강조.  event → 해당 일요일 셀 강조 + 라벨 */
+const WEEK_BLOCKS = [
+  { week:'1주차', range:'7/5(일) – 7/11(토)', activity:'킥오프 · End Goal 정하고 PRD 작성', badge:'오프라인 · 킥오프', offline:true, start:[2026,7,5],  event:'킥오프' },
+  { week:'2주차', range:'7/12(일) – 7/18(토)', activity:'배포 시작 · 매일 커밋/PR로 빌드', badge:'온라인',          offline:false, start:[2026,7,12] },
+  { week:'3주차', range:'7/19(일) – 7/25(토)', activity:'Learning by doing · 빠르게 개선', badge:'온라인',          offline:false, start:[2026,7,19] },
+  { week:'4주차', range:'7/26(일) – 8/1(토)', activity:'Learning by doing · 빠르게 개선',  badge:'온라인',          offline:false, start:[2026,7,26] },
+  { week:'5주차', range:'8/2(일) – 8/8(토)', activity:'쇼케이스 · 최종 발표',              badge:'오프라인 · 쇼케이스', offline:true, start:[2026,8,2],  event:'쇼케이스' },
+];
+const DAY_KR = ['일','월','화','수','목','금','토'];
+
+const cal = document.getElementById('calendar');
+cal.className = 'space-y-2.5';
+WEEK_BLOCKS.forEach(b => {
+  const [sy, sm, sd] = b.start;
+  const startDate = new Date(sy, sm-1, sd);     // 일요일
+
+  const block = document.createElement('div');
+  block.className = `rounded-xl border overflow-hidden ${b.offline ? 'border-violet-500/40' : 'border-zinc-800'}`;
+
+  // 온라인(Week 1~4) 블록은 기본 접힘 → 헤더 클릭으로 토글
+  const collapsible = !b.offline;
+
+  // 헤더바
+  const head = document.createElement('div');
+  head.className =
+    `flex items-center justify-between gap-3 px-4 py-2.5 ${b.offline ? 'bg-violet-500/10' : 'bg-zinc-900/40'}` +
+    (collapsible ? ' cursor-pointer select-none hover:bg-zinc-800/60 transition' : '');
+  head.innerHTML =
+    `<span class="text-[13px] truncate min-w-0"><span class="font-semibold text-zinc-400">${b.week}</span><span class="text-zinc-600 ml-1.5">${b.range}</span><span class="text-zinc-400 ml-1.5">· ${b.activity}</span></span>` +
+    `<span class="flex items-center gap-2 shrink-0">` +
+      `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded ${b.offline ? (b.event==='쇼케이스' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-violet-500/20 text-violet-300') : 'bg-zinc-800 text-zinc-400'}">${b.badge}</span>` +
+      (collapsible ? `<span class="cal-arrow text-zinc-500 text-[11px] leading-none transition-transform duration-300">▾</span>` : '') +
+    `</span>`;
+  block.appendChild(head);
+
+  // 일~토 7칸 한 줄 (접이식이면 max-height 트랜지션 래퍼로 감쌈)
+  const wrap = document.createElement('div');
+  if (collapsible) {
+    wrap.className = 'overflow-hidden transition-[max-height] duration-300 ease-in-out';
+    wrap.style.maxHeight = '0px';   // 기본 접힘
+  }
+
+  const row = document.createElement('div');
+  row.className = 'grid grid-cols-7 gap-px bg-zinc-800';
+  for (let i=0; i<7; i++) {
+    const date = new Date(startDate); date.setDate(startDate.getDate() + i);
+    const dow = date.getDay();                   // 0=일 … 6=토
+    const isEvent = i===0 && b.event;            // 이벤트는 일요일(첫 칸)
+    const isMeetup = i===0 && !b.offline;        // 온라인 주차 일요일 = 밋업
+    const cell = document.createElement('div');
+    cell.className = `px-1.5 py-2 flex flex-col items-center gap-0.5 ${isEvent ? 'bg-violet-500/15' : isMeetup ? 'bg-zinc-800' : 'bg-zinc-950'}`;
+    const dayCls = dow===0 ? 'text-red-400' : dow===6 ? 'text-blue-400' : 'text-zinc-500';
+    const numCls = isEvent ? 'text-violet-300 font-bold' : isMeetup ? 'text-zinc-100 font-semibold' : 'text-zinc-300';
+    cell.innerHTML =
+      `<span class="text-[10px] ${dayCls}">${DAY_KR[dow]}</span>` +
+      `<span class="text-sm font-mono ${numCls}">${date.getDate()}</span>` +
+      (isEvent ? `<span class="text-[9px] font-medium text-violet-300 leading-tight text-center">${b.event}</span>` : '');
+    row.appendChild(cell);
+  }
+
+  if (collapsible) {
+    wrap.appendChild(row);
+    block.appendChild(wrap);
+    // 헤더 클릭 → 펼침/접힘 토글 (max-height + 화살표 회전)
+    head.addEventListener('click', () => {
+      const open = wrap.style.maxHeight !== '0px';
+      wrap.style.maxHeight = open ? '0px' : wrap.scrollHeight + 'px';
+      const arrow = head.querySelector('.cal-arrow');
+      if (arrow) arrow.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  } else {
+    block.appendChild(row);
+  }
+  cal.appendChild(block);
+});
+</script>
+
+<!-- ───────────────── 플로팅 지원 버튼 (설명 읽는 동안 항상 노출 → 누르면 폼으로 이동) ───────────────── -->
+<button id="floatApply" type="button"
+  class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[90] rounded-full bg-violet-600 hover:bg-violet-500 px-7 py-3.5 text-sm font-semibold text-white shadow-xl shadow-violet-600/40 transition-all duration-300 active:scale-95 flex items-center gap-2 whitespace-nowrap">
+  ✍️ 바로 지원하기
+</button>
+<script>
+  (function () {
+    var btn = document.getElementById('floatApply');
+    var form = document.getElementById('apply-form');
+    if (!btn || !form) return;
+    btn.addEventListener('click', function () {
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    // 지원 폼이 화면에 들어오면 플로팅 버튼을 부드럽게 숨김
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            btn.style.opacity = '0';
+            btn.style.pointerEvents = 'none';
+            btn.style.transform = 'translate(-50%, 24px)';
+          } else {
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+            btn.style.transform = 'translate(-50%, 0)';
+          }
+        });
+      }, { threshold: 0.12 });
+      io.observe(form);
+    }
+  })();
+</script>
+
+<!-- 지원하기 클릭 → 접수 완료 안내 표시 -->
+<script>
+  (function () {
+    var btn = document.getElementById('submitApply');
+    var form = document.getElementById('applyForm');
+    var done = document.getElementById('applyDone');
+    if (!btn || !form || !done) return;
+    btn.addEventListener('click', function () {
+      form.style.display = 'none';
+      done.classList.remove('hidden');
+      done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  })();
+</script>
+</body>
+</html>
