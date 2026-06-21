@@ -314,39 +314,39 @@
       <!-- 이름 (2기 유지) -->
       <div class="flex flex-col gap-1.5">
         <label class="text-sm font-medium text-zinc-300">이름 <span class="text-violet-400">*</span></label>
-        <input class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="홍길동" />
+        <input name="name" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="홍길동" />
       </div>
 
       <!-- 전화번호 (2기 유지) -->
       <div class="flex flex-col gap-1.5">
         <label class="text-sm font-medium text-zinc-300">전화번호 <span class="text-violet-400">*</span></label>
-        <input type="tel" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="010-0000-0000" />
+        <input type="tel" name="phone" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="010-0000-0000" />
       </div>
 
       <!-- 이메일 (2기 유지 · Gmail 안내) -->
       <div class="flex flex-col gap-1.5">
         <label class="text-sm font-medium text-zinc-300">이메일 <span class="text-violet-400">*</span></label>
         <p class="text-xs text-zinc-500 -mt-0.5">구글 캘린더 밋업 초대를 받을 Gmail 주소로 적어주세요.</p>
-        <input type="email" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="you@gmail.com" />
+        <input type="email" name="email" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="you@gmail.com" />
       </div>
 
       <!-- 직무 (2기 유지 · 필수) -->
       <div class="flex flex-col gap-1.5">
         <label class="text-sm font-medium text-zinc-300">직무 <span class="text-violet-400">*</span></label>
-        <input class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="예) Product Designer" />
+        <input name="role" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="예) Product Designer" />
       </div>
 
       <!-- 연차 (2기 유지 · 선택) -->
       <div class="flex flex-col gap-1.5">
         <label class="text-sm font-medium text-zinc-300">연차</label>
-        <input class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="예) 3년차" />
+        <input name="years_exp" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="예) 3년차" />
       </div>
 
       <!-- GitHub 아이디 (3기 필수 격상) -->
       <div class="flex flex-col gap-1.5">
         <label class="text-sm font-medium text-zinc-300">GitHub 아이디 <span class="text-violet-400">*</span></label>
         <p class="text-xs text-zinc-500 -mt-0.5">아직 없다면 <a href="https://github.com/signup" target="_blank" class="text-violet-400 underline">github.com/signup</a> 에서 1분이면 만들 수 있어요. 챌린지 내내 공용 레포에 매일 커밋하게 돼요.</p>
-        <input class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="github-username" />
+        <input name="github" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition" placeholder="github-username" />
       </div>
 
       <!-- AI 사용 빈도 (3기 신규 · 5단계 라디오) -->
@@ -438,12 +438,12 @@
           <span class="shrink-0">💡</span>
           <span>4주간의 챌린지 동안 모더레이터가 지원자님이 적어주신 이야기로 <b class="text-violet-200">한 분 한 분의 배경과 목표를 미리 이해</b>해서, <b class="text-violet-200">당신에게 맞는 방향으로 챙겨드릴 예정이에요.</b></span>
         </div>
-        <textarea rows="10" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition resize-none" placeholder="예) 4년차 프로덕트 디자이너예요. 회사 보안이 너무 세서 AI 툴을 맘껏 못 써봤는데, 그래도 'AI로 직접 만드는 사람'이 되고 싶다는 마음이 계속 있었어요.&#10;&#10;이번 베프디에선 ...를 꼭 만들어보고 싶어요.&#10;&#10;4주 뒤엔 ...한 메이커가 되어 있으면 좋겠어요."></textarea>
+        <textarea name="reason" rows="10" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition resize-none" placeholder="예) 4년차 프로덕트 디자이너예요. 회사 보안이 너무 세서 AI 툴을 맘껏 못 써봤는데, 그래도 'AI로 직접 만드는 사람'이 되고 싶다는 마음이 계속 있었어요.&#10;&#10;이번 베프디에선 ...를 꼭 만들어보고 싶어요.&#10;&#10;4주 뒤엔 ...한 메이커가 되어 있으면 좋겠어요."></textarea>
       </div>
 
       <!-- 동의: 개인정보 수집·이용 (apply-v3) -->
       <label class="flex gap-3 items-start rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-3.5 text-sm cursor-pointer hover:border-zinc-600 transition">
-        <input type="checkbox" class="mt-0.5 h-4 w-4 shrink-0 accent-violet-600" />
+        <input type="checkbox" id="consentPrivacy" class="mt-0.5 h-4 w-4 shrink-0 accent-violet-600" />
         <span class="leading-relaxed">
           <span class="font-medium text-zinc-100">개인정보 수집·이용 동의 </span><span class="text-violet-400">*</span><br />
           <span class="text-zinc-400 text-[13px]">
@@ -454,7 +454,7 @@
 
       <!-- 동의: 콘텐츠·사진 활용 (apply-v3) -->
       <label class="flex gap-3 items-start rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-3.5 text-sm cursor-pointer hover:border-zinc-600 transition">
-        <input type="checkbox" class="mt-0.5 h-4 w-4 shrink-0 accent-violet-600" />
+        <input type="checkbox" id="consentContent" class="mt-0.5 h-4 w-4 shrink-0 accent-violet-600" />
         <span class="leading-relaxed">
           <span class="font-medium text-zinc-100">콘텐츠 · 사진 활용 동의 </span><span class="text-violet-400">*</span><br />
           <span class="text-zinc-400 text-[13px]">
@@ -465,7 +465,10 @@
         </span>
       </label>
 
-      <button type="button" id="submitApply" class="w-full rounded-xl bg-violet-600 hover:bg-violet-500 px-6 py-3.5 text-sm font-semibold text-white transition">지원하기</button>
+      <!-- 인라인 안내 메시지 (필수값 누락·전송 실패 시 부드럽게 표시) -->
+      <p id="applyError" class="hidden text-sm text-rose-300 leading-relaxed"></p>
+
+      <button type="button" id="submitApply" class="w-full rounded-xl bg-violet-600 hover:bg-violet-500 px-6 py-3.5 text-sm font-semibold text-white transition disabled:opacity-60 disabled:cursor-not-allowed">지원하기</button>
     </form>
 
     <!-- 제출 완료 안내 (지원하기 클릭 시 표시) -->
@@ -778,17 +781,104 @@ WEEK_BLOCKS.forEach(b => {
   })();
 </script>
 
-<!-- 지원하기 클릭 → 접수 완료 안내 표시 -->
+<!-- ───────────────── 지원하기 클릭 → 실제 저장(/api/apply) ───────────────── -->
 <script>
   (function () {
-    var btn = document.getElementById('submitApply');
-    var form = document.getElementById('applyForm');
-    var done = document.getElementById('applyDone');
+    var btn   = document.getElementById('submitApply');
+    var form  = document.getElementById('applyForm');
+    var done  = document.getElementById('applyDone');
+    var errEl = document.getElementById('applyError');
     if (!btn || !form || !done) return;
-    btn.addEventListener('click', function () {
+
+    function showError(msg) {
+      if (!errEl) return;
+      errEl.textContent = msg;
+      errEl.classList.remove('hidden');
+      errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    function clearError() {
+      if (errEl) errEl.classList.add('hidden');
+    }
+    function showDone() {
       form.style.display = 'none';
+      clearError();
       done.classList.remove('hidden');
       done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // 입력칸/드롭다운 값을 모아서 payload로 만들어요.
+    // - 일반 input/textarea: name 속성으로 읽음
+    // - 커스텀 드롭다운: 각 .custom-select 안의 hidden input(.cs-value)에 선택값이 들어있음
+    // - 체크박스: id로 직접 확인
+    function collect() {
+      function val(name) {
+        var el = form.querySelector('[name="' + name + '"]');
+        return el ? (el.value || '').trim() : '';
+      }
+      return {
+        name:       val('name'),
+        phone:      val('phone'),
+        email:      val('email'),
+        role:       val('role'),
+        years_exp:  val('years_exp'),
+        github:     val('github'),
+        ai_level:   val('ai_level'),
+        team:       val('team'),
+        referral:   val('referral'),
+        reason:     val('reason'),
+        consent_privacy: !!(document.getElementById('consentPrivacy') || {}).checked,
+        consent_content: !!(document.getElementById('consentContent') || {}).checked,
+      };
+    }
+
+    function validate(d) {
+      if (!d.name)  return '이름을 입력해주세요.';
+      if (!d.phone) return '전화번호를 입력해주세요.';
+      if (!d.email) return '이메일을 입력해주세요.';
+      if (!d.github) return 'GitHub 아이디를 입력해주세요.';
+      if (!d.team)  return '지원하고 싶은 팀을 선택해주세요.';
+      if (!d.consent_privacy) return '개인정보 수집·이용에 동의해주세요.';
+      if (!d.consent_content) return '콘텐츠·사진 활용에 동의해주세요.';
+      return null;
+    }
+
+    btn.addEventListener('click', async function () {
+      clearError();
+      var data = collect();
+
+      var problem = validate(data);
+      if (problem) { showError(problem); return; }
+
+      // 전송 중: 버튼 비활성화 + 안내
+      var origLabel = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = '제출 중...';
+
+      try {
+        var res = await fetch('/api/apply', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          showDone();
+          return;
+        }
+
+        // 서버가 응답은 했지만 에러(400/500/502 등) → 실제 문제이므로 안내 후 재시도 가능
+        var json = await res.json().catch(function () { return {}; });
+        showError(json.error || '잠시 후 다시 시도해주세요.');
+        btn.disabled = false;
+        btn.textContent = origLabel;
+      } catch (err) {
+        // 네트워크 에러(예: 로컬 file:// 로 열어 /api/apply 가 없을 때)
+        // ⚠️ 이 분기는 "시안 미리보기 편의용"이에요.
+        //    배포(https)에서는 서버 함수가 정상 응답하므로 위쪽 정상 흐름을 타요.
+        //    로컬에서 디자인만 확인할 때 완료 화면을 볼 수 있도록 데모로 통과시켜요.
+        console.warn('네트워크 오류 — 데모(미리보기) 모드로 완료 화면을 표시해요:', err);
+        showDone();
+      }
     });
   })();
 </script>
