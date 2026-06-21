@@ -1,5 +1,7 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/waitlist-a.html" }
+    { "source": "/", "destination": "/waitlist-a.html" },
+    { "source": "/waitlist", "destination": "/waitlist-a.html" },
+    { "source": "/apply", "destination": "/apply-v5.html" }
   ]
 }
