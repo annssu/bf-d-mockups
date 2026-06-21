@@ -22,11 +22,10 @@
     .ph { background: rgba(251,191,36,.12); border:1px dashed rgba(251,191,36,.5); border-radius:6px; padding:1px 6px; color:#fcd34d; font-size:.85em; }
 
     /* ── 기수 '파일' 카드 ── */
-    .gen-file { position: relative; }
-    .gen-file::before {  /* 파일 폴더 탭 */
-      content:""; position:absolute; top:-7px; left:16px; width:38px; height:9px;
-      background:inherit; border:1px solid; border-color:inherit; border-bottom:none;
-      border-radius:5px 5px 0 0;
+    .gen-file {
+      position: relative;
+      /* 아주 은은한 입체감 (인위적이지 않게) */
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 1px 3px rgba(0,0,0,0.22);
     }
     .gen-file .gen-ico { transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
     .gen-file:hover .gen-ico { transform: translateY(-2px) rotate(-6deg); }
@@ -93,7 +92,7 @@
   <section class="space-y-5">
     <div class="flex items-center gap-2.5 flex-wrap">
       <!-- 2기 폼과 동일한 보라색 pill 배지 (모집중 · 마감 D-day) -->
-      <span class="rounded-full bg-violet-600 px-3 py-1 text-sm font-semibold text-white">모집중 · D-<span class="ph">N</span> 마감</span>
+      <span id="ddayBadge" class="rounded-full bg-violet-600 px-3 py-1 text-sm font-semibold text-white">모집중</span>
     </div>
 
     <!-- 큰 한글 시즌 제목 -->
@@ -176,7 +175,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
 
       <!-- 팀 1: AI Builder -->
-      <div class="rounded-xl border border-violet-500/40 bg-violet-500/[0.06] p-4 flex flex-col gap-2.5">
+      <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 flex flex-col gap-2.5">
         <div>
           <h3 class="font-bold text-zinc-100 text-[15px] leading-tight">🚀 AI Builder</h3>
           <p class="text-[11px] text-violet-300 mt-0.5">A부터 Z까지 — 나만의 서비스</p>
@@ -188,7 +187,7 @@
       <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 flex flex-col gap-2.5">
         <div>
           <h3 class="font-bold text-zinc-100 text-[15px] leading-tight">⚙️ AI Product Ops</h3>
-          <p class="text-[11px] text-zinc-400 mt-0.5">반복작업을 시스템으로</p>
+          <p class="text-[11px] text-violet-300 mt-0.5">반복작업을 시스템으로</p>
         </div>
         <p class="text-[13px] text-zinc-300 leading-relaxed">매일 반복하는 협업·관리·잡무를 <b>AI·자동화</b>로 없애는 실전 프로젝트를 만들어요.</p>
       </div>
@@ -197,7 +196,7 @@
       <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 flex flex-col gap-2.5">
         <div>
           <h3 class="font-bold text-zinc-100 text-[15px] leading-tight">🎨 AI Designer</h3>
-          <p class="text-[11px] text-zinc-400 mt-0.5">비주얼 / 플랫폼 / 인터랙션</p>
+          <p class="text-[11px] text-violet-300 mt-0.5">비주얼 / 플랫폼 / 인터랙션</p>
         </div>
         <p class="text-[13px] text-zinc-300 leading-relaxed"><b>인터랙션·비주얼이 살아있는 결과물</b>을 끝단까지 코드로 빌드해요.</p>
       </div>
@@ -266,9 +265,9 @@
   <section class="space-y-3">
     <h2 class="text-lg font-semibold text-zinc-100">STUDY RULE</h2>
     <div class="rounded-xl border border-zinc-800 bg-zinc-900/60 p-5 space-y-4 text-sm text-zinc-400">
-      <div class="rounded-lg bg-violet-500/10 border border-violet-500/30 px-4 py-3 text-zinc-100">
-        <p class="font-semibold leading-relaxed">매주 선언한 과제를 달성하면 그 주의 환급 자격(5만원)이 쌓이고, 달성하지 못하면 그만큼 차감돼요.</p>
-        <p class="text-zinc-300 leading-relaxed mt-1">참여하려면 <b>운영 참가비 3만원</b>과 <b>챌린지 보증금 20만원</b>이 필요해요. 보증금은 <b>그 주에 바로 돌려드리는 게 아니라, 챌린지가 끝난 뒤 쌓인 환급 자격만큼 한 번에 정산</b>해요.</p>
+      <div class="rounded-lg bg-violet-500/10 border border-violet-500/30 px-4 py-3 text-zinc-300">
+        <p class="leading-relaxed">매주 선언한 과제를 달성하면 그 주의 <b class="text-white">환급 자격(5만원)</b>이 쌓이고, 달성하지 못하면 그만큼 차감돼요.</p>
+        <p class="leading-relaxed mt-2">참여하려면 <b class="text-white">운영 참가비 3만원</b>과 <b class="text-white">챌린지 보증금 20만원</b>이 필요해요.<br />보증금은 그 주에 바로 돌려드리는 게 아니라, 챌린지가 끝난 뒤 <b class="text-white">쌓인 환급 자격만큼 한 번에 정산</b>해요.</p>
       </div>
       <ul class="space-y-1.5 list-disc list-inside">
         <li>운영 참가비 3만원 — 운영·장소·진행에 쓰여요 (환급되지 않아요)</li>
@@ -357,7 +356,7 @@
         <div class="custom-select relative" data-name="ai_level">
           <button type="button" class="cs-trigger w-full flex items-center justify-between gap-2 rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm outline-none transition focus:border-violet-500">
             <span class="cs-label text-zinc-500">선택해주세요</span>
-            <span class="cs-arrow text-zinc-500 text-xs leading-none transition-transform duration-200">▾</span>
+            <svg class="cs-arrow w-4 h-4 text-zinc-400 shrink-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
           </button>
           <input type="hidden" class="cs-value" name="ai_level" value="" />
           <ul class="cs-panel hidden absolute left-0 right-0 top-full mt-1.5 z-50 rounded-xl border border-zinc-700 bg-zinc-900 shadow-xl overflow-hidden">
@@ -384,7 +383,7 @@
         <div class="custom-select relative" data-name="team" data-team-select>
           <button type="button" class="cs-trigger w-full flex items-center justify-between gap-2 rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm outline-none transition focus:border-violet-500">
             <span class="cs-label text-zinc-500">선택해주세요</span>
-            <span class="cs-arrow text-zinc-500 text-xs leading-none transition-transform duration-200">▾</span>
+            <svg class="cs-arrow w-4 h-4 text-zinc-400 shrink-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
           </button>
           <input type="hidden" class="cs-value" name="team" value="" />
           <ul class="cs-panel hidden absolute left-0 right-0 top-full mt-1.5 z-50 rounded-xl border border-zinc-700 bg-zinc-900 shadow-xl overflow-hidden">
@@ -412,7 +411,7 @@
         <div class="custom-select relative" data-name="referral">
           <button type="button" class="cs-trigger w-full flex items-center justify-between gap-2 rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm outline-none transition focus:border-violet-500">
             <span class="cs-label text-zinc-500">선택해주세요</span>
-            <span class="cs-arrow text-zinc-500 text-xs leading-none transition-transform duration-200">▾</span>
+            <svg class="cs-arrow w-4 h-4 text-zinc-400 shrink-0 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
           </button>
           <input type="hidden" class="cs-value" name="referral" value="" />
           <ul class="cs-panel hidden absolute left-0 right-0 top-full mt-1.5 z-50 rounded-xl border border-zinc-700 bg-zinc-900 shadow-xl overflow-hidden">
@@ -428,15 +427,14 @@
 
       <!-- 주관식 (apply-v3 원문 그대로 · 지원 계기 & 되고 싶은 메이커) -->
       <div class="flex flex-col gap-1.5">
-        <label class="text-sm font-medium text-zinc-300">베프디에 지원하기로 마음먹은 이야기를 들려주세요 <span class="text-violet-400">*</span></label>
+        <label class="text-sm font-medium text-zinc-300">베프디를 찾아오신 이유가 궁금해요 <span class="text-violet-400">*</span></label>
         <p class="text-xs text-zinc-500 -mt-0.5 leading-relaxed">
-          잘 쓰려 하지 않아도 돼요. <b class="text-zinc-400">무엇이 당신을 베프디까지 오게 했는지(계기)</b>,
-          요즘 'AI로 이건 꼭 해보고 싶다' 싶은데 아직 못 한 게 있는지,
-          그리고 이 4주 끝에 <b class="text-zinc-400">어떤 AI 메이커가 되어 있으면 좋겠는지</b> — 떠오르는 대로 편하게요.
+          <b class="text-zinc-400">지금 어떤 일을 하시는지(직무·연차), 어떤 환경에 계신지</b>,
+          그래서 <b class="text-zinc-400">왜 'AI로 직접 만드는 사람'이 되고 싶은지</b> — 당신의 배경과 이야기가 궁금해요.
         </p>
         <div class="rounded-lg bg-violet-500/[0.08] border border-violet-500/25 px-3.5 py-2.5 text-[12.5px] text-violet-100/80 leading-relaxed flex gap-2">
           <span class="shrink-0">💡</span>
-          <span>4주간의 챌린지 동안 모더레이터가 지원자님이 적어주신 이야기로 <b class="text-violet-200">한 분 한 분의 배경과 목표를 미리 이해</b>해서, <b class="text-violet-200">당신에게 맞는 방향으로 챙겨드릴 예정이에요.</b></span>
+          <span>모더레이터가 지원자님이 적어주신 이야기를 바탕으로 <b class="text-violet-200">개개인의 방향에 맞게</b> 4주간 챌린지를 챙겨드릴 예정이에요.</span>
         </div>
         <textarea name="reason" rows="10" class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm placeholder-zinc-500 outline-none focus:border-violet-500 transition resize-none" placeholder="예) 4년차 프로덕트 디자이너예요. 회사 보안이 너무 세서 AI 툴을 맘껏 못 써봤는데, 그래도 'AI로 직접 만드는 사람'이 되고 싶다는 마음이 계속 있었어요.&#10;&#10;이번 베프디에선 ...를 꼭 만들어보고 싶어요.&#10;&#10;4주 뒤엔 ...한 메이커가 되어 있으면 좋겠어요."></textarea>
       </div>
@@ -699,10 +697,10 @@ WEEK_BLOCKS.forEach(b => {
     `flex items-center justify-between gap-3 px-4 py-2.5 ${b.offline ? 'bg-violet-500/10' : 'bg-zinc-900/40'}` +
     (collapsible ? ' cursor-pointer select-none hover:bg-zinc-800/60 transition' : '');
   head.innerHTML =
-    `<span class="text-[13px] truncate min-w-0"><span class="font-semibold text-zinc-400">${b.week}</span><span class="text-zinc-600 ml-1.5">${b.range}</span><span class="text-zinc-400 ml-1.5">· ${b.activity}</span></span>` +
+    `<span class="text-[11px] sm:text-[13px] truncate min-w-0"><span class="font-semibold text-zinc-400">${b.week}</span><span class="text-zinc-600 ml-1.5 hidden sm:inline">${b.range}</span><span class="text-zinc-400 ml-1 sm:ml-1.5">· ${b.activity}</span></span>` +
     `<span class="flex items-center gap-2 shrink-0">` +
       `<span class="text-[10px] font-medium px-1.5 py-0.5 rounded ${b.offline ? (b.event==='쇼케이스' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-violet-500/20 text-violet-300') : 'bg-zinc-800 text-zinc-400'}">${b.badge}</span>` +
-      (collapsible ? `<span class="cal-arrow text-zinc-500 text-[11px] leading-none transition-transform duration-300">▾</span>` : '') +
+      (collapsible ? `<svg class="cal-arrow w-4 h-4 text-zinc-400 shrink-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>` : '') +
     `</span>`;
   block.appendChild(head);
 
@@ -727,7 +725,8 @@ WEEK_BLOCKS.forEach(b => {
     cell.innerHTML =
       `<span class="text-[10px] ${dayCls}">${DAY_KR[dow]}</span>` +
       `<span class="text-sm font-mono ${numCls}">${date.getDate()}</span>` +
-      (isEvent ? `<span class="text-[9px] font-medium text-violet-300 leading-tight text-center">${b.event}</span>` : '');
+      (isEvent ? `<span class="text-[9px] font-medium text-violet-300 leading-tight text-center">${b.event}</span>`
+        : isMeetup ? `<span class="text-[9px] font-medium text-zinc-400 leading-tight text-center">온라인 밋업</span>` : '');
     row.appendChild(cell);
   }
 
@@ -750,8 +749,9 @@ WEEK_BLOCKS.forEach(b => {
 
 <!-- ───────────────── 플로팅 지원 버튼 (설명 읽는 동안 항상 노출 → 누르면 폼으로 이동) ───────────────── -->
 <button id="floatApply" type="button"
-  class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[90] rounded-full bg-violet-600 hover:bg-violet-500 px-7 py-3.5 text-sm font-semibold text-white shadow-xl shadow-violet-600/40 transition-all duration-300 active:scale-95 flex items-center gap-2 whitespace-nowrap">
-  ✍️ 바로 지원하기
+  class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[90] rounded-full bg-violet-600/45 hover:bg-violet-500/60 backdrop-blur-md backdrop-saturate-150 border border-white/25 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-violet-900/40 transition-all duration-300 active:scale-95 flex items-center gap-2 whitespace-nowrap"
+  style="-webkit-backdrop-filter:blur(10px) saturate(150%);">
+  ✍️ 지원서 바로 작성하기
 </button>
 <script>
   (function () {
@@ -880,6 +880,20 @@ WEEK_BLOCKS.forEach(b => {
         showDone();
       }
     });
+  })();
+</script>
+
+<!-- 마감 D-day 자동 계산 (6/29 23:59 마감) -->
+<script>
+  (function () {
+    var badge = document.getElementById('ddayBadge');
+    if (!badge) return;
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var deadline = new Date(2026, 5, 29); deadline.setHours(0, 0, 0, 0); // 2026-06-29
+    var days = Math.round((deadline - today) / 86400000);
+    if (days > 0)       badge.textContent = '모집중 · D-' + days + ' 마감';
+    else if (days === 0) badge.textContent = '오늘 마감!';
+    else                 badge.textContent = '모집 마감';
   })();
 </script>
 </body>
